@@ -26,4 +26,6 @@ ctrl + w + n: split horizontally
 ctrl + w + hjkl: move left, down, up, right
 ctrl + w + q: quit current window
 
-
+Git
+https://supersimpledev.github.io/references/git-github-reference.pdf
+https://supersimple.dev/courses/git-github-complete-course-20211
