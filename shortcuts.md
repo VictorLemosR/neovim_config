@@ -1,4 +1,7 @@
-Move motions
+
+#Default shortcuts
+
+##Motions
 
 0: start of line
 ^: first non-blank character of line
@@ -19,7 +22,11 @@ Deletion mode
 ciw: delete whole word and enter insertion mode
 ci' or ci": search for first ' (or ") and delete its contents
 
-windows
+:w - write file
+:q - close vim
+:bd! - to delete from buffer and ignore changes
+
+#Windows management
 
 ctrl + w + v: split vertically
 ctrl + w + n: split horizontally
