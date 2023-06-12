@@ -23,10 +23,10 @@ vim.keymap.set({"n", "v"}, "<leader>v", [["+gp]])
 vim.keymap.set({"n", "v"}, "<C-v>", [["+gp]])
 vim.keymap.set({"i", "c"}, "<C-v>", "<C-r>+")
 -- Undo mode
-vim.keymap.set({"n", "v"}, "<C-z>", "u") 
+vim.keymap.set({"n", "v"}, "<C-z>", "u")
 vim.keymap.set({"i", "c"}, "<C-z>", "<C-O>u")
 -- Paste mode
-vim.keymap.set({"n", "v"}, "<C-y>", "<C-R>") 
+vim.keymap.set({"n", "v"}, "<C-y>", "<C-R>")
 vim.keymap.set({"i", "c"}, "<C-y>", "<C-O><C-R>")
 -- Delete without losing copied text in buffer
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])

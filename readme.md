@@ -1,21 +1,31 @@
+# Windows installation (10/06/23)
 
-Windows installation (10/06/23)
+1. install wezterm and place wezterm.lua from here into wezterm folder: https://wezfurlong.org/wezterm/installation.html
+(If your pc does not have a gpu, like my pc from work, change in wezterm.lua 
+' config.front_end = "Software" ')
 
-install wezterm: https://wezfurlong.org/wezterm/installation.html
+2. install git: https://git-scm.com/downloads
 
-install git: https://git-scm.com/downloads
+3. install SauceCodePro Nerd Font in folder "C:\windows\fonts\": https://www.nerdfonts.com/font-downloads
 
-install SauceCodePro Nerd Font in folder "C:\windows\fonts\": https://www.nerdfonts.com/font-downloads
+4. install neovim: https://github.com/neovim/neovim/releases/tag/stable
 
-install neovim: https://github.com/neovim/neovim/releases/tag/stable
+5. Download ripgrep and add to path: https://github.com/BurntSushi/ripgrep/releases
 
-Download ripgrep and add to path: https://github.com/BurntSushi/ripgrep/releases
+6. Install C compiller for windows needed for treesitter (tips here https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support): https://www.mingw-w64.org/downloads/, chose "LLVM-MinGW" and add to path the \bin folder inside the .zip
 
-Install C compiller for windows needed for treesitter (tips here https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support): https://www.mingw-w64.org/downloads/, chose "LLVM-MinGW" and add to path the \bin folder inside the .zip
+7. In case there is an error with 'module tslib' after using ':MarkdownPreview' (can check the error using :mess after the command)
+https://github.com/iamcco/markdown-preview.nvim/issues/148
 
 Config default lsp servers, linters, .... 
 Autocorrection on text and markdown
 Enable accents on text and markdown
 
+Accents:
+https://stackoverflow.com/questions/72984648/neovim-lua-how-to-use-different-mappings-depending-on-file-type
+https://github.com/folke/which-key.nvim/issues/135
+google search: vim.keymap.set filetype
+
 -- install nvm for Windows: https://github.com/coreybutler/nvm-windows
+
 
