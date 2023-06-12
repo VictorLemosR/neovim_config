@@ -13,8 +13,9 @@ Download ripgrep and add to path: https://github.com/BurntSushi/ripgrep/releases
 
 Install C compiller for windows needed for treesitter (tips here https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support): https://www.mingw-w64.org/downloads/, chose "LLVM-MinGW" and add to path the \bin folder inside the .zip
 
-
-
+Config default lsp servers, linters, .... 
+Autocorrection on text and markdown
+Enable accents on text and markdown
 
 -- install nvm for Windows: https://github.com/coreybutler/nvm-windows
 
