@@ -17,9 +17,3 @@
 7. In case there is an error with 'module tslib' after using ':MarkdownPreview' (can check the error using :mess after the command)
 https://github.com/iamcco/markdown-preview.nvim/issues/148
 7.1. install nvm for Windows: https://github.com/coreybutler/nvm-windows
-
-##### todo
-Config default lsp servers, linters, .... 
-Autocorrection on markdown
-debug
-
