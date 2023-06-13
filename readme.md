@@ -16,16 +16,10 @@
 
 7. In case there is an error with 'module tslib' after using ':MarkdownPreview' (can check the error using :mess after the command)
 https://github.com/iamcco/markdown-preview.nvim/issues/148
+7.1. install nvm for Windows: https://github.com/coreybutler/nvm-windows
 
+##### todo
 Config default lsp servers, linters, .... 
-Autocorrection on text and markdown
-Enable accents on text and markdown
-
-Accents:
-https://stackoverflow.com/questions/72984648/neovim-lua-how-to-use-different-mappings-depending-on-file-type
-https://github.com/folke/which-key.nvim/issues/135
-google search: vim.keymap.set filetype
-
--- install nvm for Windows: https://github.com/coreybutler/nvm-windows
-
+Autocorrection on markdown
+debug
 

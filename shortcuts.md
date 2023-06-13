@@ -1,10 +1,8 @@
+:nmap - see custom keymaps
 # Custom shortcuts
 
-
 # Default shortcuts
-
 #### Motions
-
 - 0: start of line
 - ^: first non-blank character of line
 - $: end of line
