@@ -33,3 +33,5 @@ https://github.com/WhiteBlackGoose/magma-nvim-goose
 
 Interesting plugin for list formation
 https://github.com/gaoDean/autolist.nvim
+
+https://ftp.nluug.nl/pub/vim/runtime/spell/
