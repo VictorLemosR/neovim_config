@@ -21,7 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
--- Code from net, relook into it after
+-- Code from net, re-look into it after
 function url_encode(str)
   if str then
     str = str:gsub("\n", "\r\n")

@@ -12,7 +12,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 --Searched words are kept in middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
+-- Makes highlighted words fade after search is finished
+--vim.keymap.set('c', '<CR>', ':noh<CR><CR>')
 -- paste over highlighted text without losing pasted text
 vim.keymap.set("x", "<leader>p", [["_dP]])
 -- Yank the text to the copy sistem

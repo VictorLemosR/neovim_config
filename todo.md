@@ -16,10 +16,20 @@ https://github.com/rockerBOO/awesome-neovim
 9. Look for a debug
 
 
-https://github.com/nvim-lualine/lualine.nvim
-https://github.com/folke/trouble.nvim
-https://github.com/lukas-reineke/indent-blankline.nvim
 https://github.com/folke/noice.nvim
 
 Config default lsp servers, linters, .... 
 Autocorrection on markdown
+
+
+https://github.com/Olical/conjure
+https://github.com/michaelb/sniprun
+https://github.com/Vigemus/iron.nvim
+
+#Menos estrelas
+https://github.com/ubaldot/vim-replica
+https://github.com/geg2102/nvim-python-repl
+https://github.com/WhiteBlackGoose/magma-nvim-goose
+
+Interesting plugin for list formation
+https://github.com/gaoDean/autolist.nvim
