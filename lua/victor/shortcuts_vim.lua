@@ -49,3 +49,8 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+-- Escape key remap
+vim.keymap.set({'i', 'v'}, 'KJ', '<esc>')
+vim.keymap.set('c', 'KJ', '<c-c>')
+vim.keymap.set({'i', 'v'}, 'JK', '<esc>')
+vim.keymap.set('c', 'JK', '<c-c>')

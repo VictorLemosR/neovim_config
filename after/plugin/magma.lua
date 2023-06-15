@@ -1,9 +1,9 @@
-vim.keymap.set("n", "<Leader>r",  ':MagmaEvaluateOperator<CR>')
-vim.keymap.set("n", "<Leader>rr", ':MagmaEvaluateLine<CR>')
-vim.keymap.set("v", "<Leader>r",  ':<C-u>MagmaEvaluateVisual<CR>')
-vim.keymap.set("n", "<Leader>rc", ':MagmaReevaluateCell<CR>')
-vim.keymap.set("n", "<Leader>rd", ':MagmaDelete<CR>')
-vim.keymap.set("n", "<Leader>ro", ':MagmaShowOutput<CR>')
-
-vim.g.magma_automatically_open_output = "v:false"
-vim.g.magma_image_provider = "ueberzug"
+--vim.keymap.set("n", "<Leader>r",  ':MagmaEvaluateOperator<CR>')
+--vim.keymap.set("n", "<Leader>rr", ':MagmaEvaluateLine<CR>')
+--vim.keymap.set("v", "<Leader>r",  ':<C-u>MagmaEvaluateVisual<CR>')
+--vim.keymap.set("n", "<Leader>rc", ':MagmaReevaluateCell<CR>')
+--vim.keymap.set("n", "<Leader>rd", ':MagmaDelete<CR>')
+--vim.keymap.set("n", "<Leader>ro", ':MagmaShowOutput<CR>')
+--
+--vim.g.magma_automatically_open_output = "v:false"
+--vim.g.magma_image_provider = "ueberzug"
