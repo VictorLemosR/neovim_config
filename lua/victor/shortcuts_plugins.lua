@@ -18,12 +18,13 @@ local remaps_plugins =
         -- Configure after, so many hotkeys
     },
     nvim_tree = {
-        open_on_file = '<leader>tt',
+        open_tree = '<leader>tt',
+        open_on_file = '<leader>tf',
         open_on_notes = '<leader>',
         open_on_codes = '<leader>',
         -- when tree is open
-        root_to_node = 'rn',
-        root_to_parent = 'rp',
+        root_to_node = 'tn',
+        root_to_parent = 'tp',
     },
     telescope = {
         find_files = '<leader>ff',

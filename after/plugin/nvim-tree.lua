@@ -2,7 +2,8 @@ local remaps_plugins = require("victor.shortcuts_plugins")
 KEYS = remaps_plugins.nvim_tree
 
 -- Custom mappings
-vim.keymap.set('n', KEYS.open_on_file, ":NvimTreeFindFileToggle<CR>")
+vim.keymap.set('n', KEYS.open_tree, ":NvimTreeFindFileToggle<CR>")
+vim.keymap.set('n', KEYS.open_on_file, ":NvimTreeFindFile<CR>")
 
 -- Configs
 -- disable netrw at the very start of your init.lua
@@ -13,7 +14,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
-
+local remaps_plugins = require("victor.shortcuts_plugins")
+KEYS = remaps_plugins.nvim_tree
     local function opts(desc)
         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
@@ -22,7 +24,8 @@ local function my_on_attach(bufnr)
     api.config.mappings.default_on_attach(bufnr)
 
     -- custom mappings
-    vim.keymap.set('n', '<A-t>', api.tree.change_root_to_parent, opts('Up'))
+    vim.keymap.set('n', KEYS.root_to_parent, api.tree.change_root_to_parent, opts('Up'))
+    vim.keymap.set('n', KEYS.root_to_node, api.tree.change_root_to_node, opts('Up'))
     vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 end
 
@@ -42,6 +45,6 @@ require("nvim-tree").setup({
   actions = {
       open_file = {
           quit_on_open = true,
-      }
-  }
-})
+      },
+  },
+  })

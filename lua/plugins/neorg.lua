@@ -30,11 +30,11 @@ return {
                             "<C:/Victor/notes>/<markdown>-export"
                         },
                     },
-                    ["core.export.markdown"] = {
-                        config = {
-                            extensions = {"todo-items-basic", "definition-lists"}
-                        }
-                    },
+--                    ["core.export.markdown"] = {
+--                        config = {
+--                            extensions = {"todo-items-basic", "definition-lists"}
+--                        }
+--                    },
                     ["core.summary"] = {},
                     ["core.autocommands"] = {},
                     ["core.highlights"] = {},
