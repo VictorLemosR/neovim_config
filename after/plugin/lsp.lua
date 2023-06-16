@@ -1,4 +1,4 @@
---    'pyright', -- (python lsp) one of the primary mainteners of the lsp client is fan of it
+--   'pyright', -- (python lsp) one of the primary mainteners of the lsp client is fan of it
 --    'debugpy', -- (python debugger) only one by the time I made the config (06/23)
 --    'ruff', -- (python  linter) way faster than the others, coded in rust, lots of stars in git
 --    'black', -- (python formatter) - Black gives you speed, determinism. You will save time and mental energy for more important matters.lua-language-server, -- (only lua LSP)
@@ -7,6 +7,7 @@
 --    'stylua', -- (lua formatter)
 
 local lsp = require('lsp-zero').preset("recommended")
+
 
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
@@ -19,6 +20,15 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
+})
+cmp.setup({
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'buffer', keyword_length = 3},
+    {name = 'luasnip', keyword_length = 2},
+    {name = 'neorg'},
+  }
 })
 
 lsp.setup_nvim_cmp({ mapping = cmp_mappings })

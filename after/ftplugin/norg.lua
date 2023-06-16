@@ -1,5 +1,9 @@
+-- Few options for markdown and norg formats
+vim.opt_local.wrap = true
+vim.opt_local.textwidth = 80
 vim.opt_local.spelllang = 'pt,en_us'
-vim.g.markdown_recommended_style = 0
+vim.opt_local.expandtab = false
+
 -- I've disabled dead keys on terminal and reactivated them this way only for
 -- markdown and text formats
 vim.keymap.set({"i", "c"}, "~a", "ã", {buffer = true})

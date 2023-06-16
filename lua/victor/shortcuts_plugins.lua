@@ -22,7 +22,7 @@ local remaps_plugins =
         open_on_notes = '<leader>',
         open_on_codes = '<leader>',
         -- when tree is open
-        root_to_node = '<leader>n',
+        root_to_node = 'rn',
         root_to_parent = 'rp',
     },
     telescope = {

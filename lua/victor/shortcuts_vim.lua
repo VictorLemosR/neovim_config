@@ -45,10 +45,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- Not sure what it does either
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
--- Just to not type :so, I guess
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
 -- Escape key remap
 vim.keymap.set({'i', 'v'}, 'KJ', '<esc>')
 vim.keymap.set('c', 'KJ', '<c-c>')
