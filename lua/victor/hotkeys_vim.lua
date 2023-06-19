@@ -1,6 +1,7 @@
+-- Define leader key
 vim.g.mapleader = " "
---Back to folder
-vim.keymap.set("n", "<leader>pb", vim.cmd.Ex)
+-- Execute program
+vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end)
 --Move lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -50,3 +51,18 @@ vim.keymap.set({'i', 'v'}, 'KJ', '<esc>')
 vim.keymap.set('c', 'KJ', '<c-c>')
 vim.keymap.set({'i', 'v'}, 'JK', '<esc>')
 vim.keymap.set('c', 'JK', '<c-c>')
+-- Change root to the current file
+vim.keymap.set('n', '<leader>tr', ':cd %:h<CR>', { silent = true })
+-- Change root to default paths
+local codes_path = ""
+local notes_path = ""
+local vim_path = ""
+if vim.fn.hostname() == "TF-1106" then
+codes_path = 'U:/codigos'
+notes_path = 'C:/Victor/Notes'
+vim_path = 'C:/users/victor.santos/appdata/local/nvim'
+end
+
+vim.keymap.set('n', '<leader>tc', ':edit ' .. codes_path .. '<CR>')
+vim.keymap.set('n', '<leader>tn', ':edit ' .. notes_path .. '<CR>')
+vim.keymap.set('n', '<leader>tv', ':edit ' .. vim_path .. '<CR>')

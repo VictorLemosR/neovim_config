@@ -1,4 +1,4 @@
-local remaps_plugins = require("victor.shortcuts_plugins")
+local remaps_plugins = require("victor.hotkeys_plugins")
 KEYS = remaps_plugins.telescope
 
 local builtin = require('telescope.builtin')

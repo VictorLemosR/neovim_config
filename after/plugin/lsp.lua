@@ -1,14 +1,22 @@
---   'pyright', -- (python lsp) one of the primary mainteners of the lsp client is fan of it
---    'debugpy', -- (python debugger) only one by the time I made the config (06/23)
---    'ruff', -- (python  linter) way faster than the others, coded in rust, lots of stars in git
---    'black', -- (python formatter) - Black gives you speed, determinism. You will save time and mental energy for more important matters.lua-language-server, -- (only lua LSP)
---    'lua-language-server', --(only lua lsp)
---    'selene', -- (Lua linter) written in rust
---    'stylua', -- (lua formatter)
 
 local lsp = require('lsp-zero').preset("recommended")
 
+-- LSPs for mason to install
+lsp.ensure_installed({
+    'pyright', -- (python lsp) one of the primary mainteners of the lsp client is fan of it
+    'lua_ls', --(only lua lsp)
+})
 
+-- Tools for mason to instal
+require('mason-tool-installer').setup({
+    ensure_installed = {
+    {'debugpy', auto_update = true}, -- (python debugger) only one by the time I made the config (06/23)
+    {'ruff', auto_update = true}, -- (python  linter) way faster than the others, coded in rust, lots of stars in git
+    {'black', auto_update = true}, -- (python formatter) - Black gives you speed, determinism. You will save time and mental energy for more important matters.lua-language-server, -- (only lua LSP)
+    {'selene', auto_update = true}, -- (Lua linter) written in rust
+    {'stylua', auto_update = true}, -- (lua formatter)
+    },
+})
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
 end)

@@ -1,3 +1,1 @@
-return {
-    'dccsillag/magma-nvim', build = ':UpdateRemotePlugins'
-}
+return{ 'WhiteBlackGoose/magma-nvim-goose', build = ':UpdateRemotePlugins' }

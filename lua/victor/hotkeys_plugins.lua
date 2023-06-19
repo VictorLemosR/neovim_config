@@ -19,9 +19,8 @@ local remaps_plugins =
     },
     nvim_tree = {
         open_tree = '<leader>tt',
-        open_on_file = '<leader>tf',
-        open_on_notes = '<leader>',
-        open_on_codes = '<leader>',
+        open_on_notes = '<leader>tp',
+        open_on_codes = '<leader>tc',
         -- when tree is open
         root_to_node = 'tn',
         root_to_parent = 'tp',
