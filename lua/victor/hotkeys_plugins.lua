@@ -10,6 +10,23 @@ local remaps_plugins =
         next = '<leader><Right>',
         prev = '<leader><Left>',
     },
+    iron = {
+        send_motion = "<leader>is",
+        visual_send = "<leader>is",
+        send_file = "<leader>if",
+        send_line = "<leader>il",
+        send_until_cursor = "<leader>ic",
+--        send_mark = "", -- didn't enjoy (or understand) the mark advantage
+--        mark_motion = "", -- didn't enjoy (or understand) the mark advantage
+--        mark_visual = "", -- didn't enjoy (or understand) the mark advantage
+--        remove_mark = "", -- didn't enjoy (or understand) the mark advantage
+        cr = "<leader>i<CR>",
+        interrupt = "<leader>ii",
+        exit = "<leader>ie",
+        clear = "<leader>irc",
+        open_iron_repl = "<leader>ir",
+        restart_iron_repl = "<leader>irr",
+    },
     leap = {
         -- s - search forward
         -- S - search backward

@@ -8,13 +8,11 @@ https://github.com/rockerBOO/awesome-neovim
   1. https://github.com/m4xshen/hardtime.nvim
   2. https://github.com/antonk52/bad-practices.nvim
 9. Look for a debug
-
 https://github.com/folke/noice.nvim
 
 Autocorrection on markdown
 
 https://github.com/Olical/conjure
-https://github.com/michaelb/sniprun
 https://github.com/Vigemus/iron.nvim
 
 #Menos estrelas
