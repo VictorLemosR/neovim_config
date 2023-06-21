@@ -32,7 +32,17 @@ local remaps_plugins =
         -- S - search backward
     },
     lsp = {
-        -- Configure after, so many hotkeys
+        -- remap some of defaults functions of vim for lsp. In case there is nothing to show, default pattern is used
+       go_to_definition = 'gd',
+       hover = 'K',
+       workspace_symbol = '<leader>vws',
+       open_float = '<leader>vd',
+       go_to_next = '[d',
+       go_to_prev = ']d',
+       code_action = '<leader>vca',
+       references = '<leader>vrr',
+       rename = '<leader>vrn',
+       signature_help = '<C-h>',
     },
     nvim_tree = {
         open_tree = '<leader>tt',

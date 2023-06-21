@@ -10,15 +10,6 @@ https://github.com/rockerBOO/awesome-neovim
 9. Look for a debug
 https://github.com/folke/noice.nvim
 
+null-ls.nvim
+treinar digitação
 Autocorrection on markdown
-
-https://github.com/Olical/conjure
-https://github.com/Vigemus/iron.nvim
-
-#Menos estrelas
-https://github.com/WhiteBlackGoose/magma-nvim-goose
-
-Interesting plugin for list formation
-https://github.com/gaoDean/autolist.nvim
-
-
