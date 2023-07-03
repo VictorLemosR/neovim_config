@@ -63,6 +63,6 @@ notes_path = 'C:/Victor/Notes'
 vim_path = 'C:/users/victor.santos/appdata/local/nvim'
 end
 
-vim.keymap.set('n', '<leader>tc', ':edit ' .. codes_path .. '<CR>')
-vim.keymap.set('n', '<leader>tn', ':edit ' .. notes_path .. '<CR>')
-vim.keymap.set('n', '<leader>tv', ':edit ' .. vim_path .. '<CR>')
+vim.keymap.set('n', '<leader>tc', '<C-w><C-v>:edit ' .. codes_path .. '<CR>')
+vim.keymap.set('n', '<leader>tn', '<C-w><C-v>:edit ' .. notes_path .. '<CR>')
+vim.keymap.set('n', '<leader>tv', '<C-w><C-v>:edit ' .. vim_path .. '<CR>')

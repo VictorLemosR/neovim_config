@@ -47,6 +47,8 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
+  local remaps_plugins = require("victor.hotkeys_plugins")
+  KEYS = remaps_plugins.lsp
 
   vim.keymap.set("n", KEYS.go_to_definition, function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", KEYS.hover, function() vim.lsp.buf.hover() end, opts)
