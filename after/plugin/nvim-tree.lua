@@ -13,8 +13,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
-local remaps_plugins = require("victor.hotkeys_plugins")
-KEYS = remaps_plugins.nvim_tree
+    local remaps_plugins = require("victor.hotkeys_plugins")
+    KEYS = remaps_plugins.nvim_tree
     local function opts(desc)
         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
@@ -30,20 +30,20 @@ end
 
 -- OR setup with some options
 require("nvim-tree").setup({
-  sort_by = "name",
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = false,
-  },
-  on_attach = my_on_attach,
-  actions = {
-      open_file = {
-          quit_on_open = true,
-      },
-  },
-  })
+    sort_by = "name",
+    view = {
+        width = 30,
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = false,
+    },
+    on_attach = my_on_attach,
+    actions = {
+        open_file = {
+            quit_on_open = true,
+        },
+    },
+})

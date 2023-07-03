@@ -5,6 +5,7 @@
 #### Motions
 - 0: start of line
 - ^: first non-blank character of line
+- 0w: first word of line
 - $: end of line
 - G: end of file
 - gg: start of file
@@ -17,6 +18,25 @@
 - b: backwards word
 - %: if on bracket or if statement, go to its match
 - *: search for instances of the word within the file
+- a: insert text after cursor
+- A: insert text at end of line
+- i: insert text before cursor
+- I: insert text at start of line
+- ce: delete from cursor to end of word and enter insert mode
+- c3l: delete 3 letters
+- u: undo
+- U: undo whole line (kinda messes undo and redo)
+- ctl+r: redo
+- :s/old/new: replace word old for new
+-- %s: substitution on whole file
+-- /g: all occurrences on line
+-- /c: confirm each substitution
+-- /i: ignore case
+--- :%s/old/new/ci: will replace 'old' for 'new'
+- vaw: mark a word
+- vab: mark block inside of parenthesis including ()
+- vib: mark block inside of parenthesis excluding ()
+
 
 #### Deletion mode
 
