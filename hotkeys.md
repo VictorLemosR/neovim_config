@@ -1,3 +1,5 @@
+https://vim.rtorr.com/
+
 :nmap - see custom keymaps
 # Custom shortcuts
 

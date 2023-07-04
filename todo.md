@@ -11,7 +11,7 @@ termux
 9. Look for a debug
 https://github.com/folke/noice.nvim
 10. learn debugger and formatter
-
+nvim-dap & nvim-dap-ui
 null-ls.nvim
 treinar digitação
 Autocorrection on markdown
