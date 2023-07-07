@@ -9,6 +9,7 @@ iron.setup {
         scratch_repl = true,
         -- Your repl definitions come here
         repl_definition = {
+            python = require("iron.fts.python").ipython,
             sh = {
                 -- Can be a table or a function that
                 -- returns a table (see below)

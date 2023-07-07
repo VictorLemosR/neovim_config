@@ -8,7 +8,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.code_actions.refactoring,
 	},
-    debug = true,
+    debug = false,
 })
 
 vim.keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>")

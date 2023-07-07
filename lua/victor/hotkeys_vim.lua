@@ -22,8 +22,8 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Copy from the system
 vim.keymap.set({"n", "v"}, "<leader>v", [["+gp]])
-vim.keymap.set({"n", "v"}, "<C-v>", [["+gp]])
-vim.keymap.set({"i", "c"}, "<C-v>", "<C-r>+")
+vim.keymap.set({"n", "v"}, "<A-v>", [["+gp]])
+vim.keymap.set({"i", "c"}, "<A-v>", "<C-r>+")
 -- Undo mode
 vim.keymap.set({"n", "v"}, "<C-z>", "u")
 vim.keymap.set({"i", "c"}, "<C-z>", "<C-O>u")
@@ -53,6 +53,8 @@ vim.keymap.set({'i', 'v'}, 'JK', '<esc>')
 vim.keymap.set('c', 'JK', '<c-c>')
 -- Change root to the current file
 vim.keymap.set('n', '<leader>tr', ':cd %:h<CR>', { silent = true })
+-- Go to normal mode from terminal mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
 -- Change root to default paths
 local codes_path = ""
 local notes_path = ""

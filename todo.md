@@ -13,5 +13,8 @@ https://github.com/folke/noice.nvim
 10. learn debugger and formatter
 nvim-dap & nvim-dap-ui
 null-ls.nvim
+mason-null-ls
+mason-nvim-dap
+pyright doesnt seem to be working
 treinar digitação
 Autocorrection on markdown
