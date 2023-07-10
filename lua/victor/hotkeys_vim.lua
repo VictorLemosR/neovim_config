@@ -55,6 +55,11 @@ vim.keymap.set('c', 'JK', '<c-c>')
 vim.keymap.set('n', '<leader>tr', ':cd %:h<CR>', { silent = true })
 -- Go to normal mode from terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
+-- Increase/decrease windows size
+vim.keymap.set('n', '<C-w><C-x>', ':resize +5<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-z>', ':resize -5<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-i>', ':vertical resize +5<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-d>', ':vertical resize -5<CR>', { silent = true })
 -- Change root to default paths
 local codes_path = ""
 local notes_path = ""
