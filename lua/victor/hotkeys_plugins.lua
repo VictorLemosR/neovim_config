@@ -1,5 +1,10 @@
 local remaps_plugins =
 {
+    fugitive = {
+        git_add = "<leader>ga",
+        git_push = "<leader>gps",
+        git_pull = "<leader>gpl",
+    },
     harpoon = {
         add = '<leader>a',
         menu = '<leader>e',

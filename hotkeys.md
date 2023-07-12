@@ -38,6 +38,8 @@ https://vim.rtorr.com/
 - vaw: mark a word
 - vab: mark block inside of parenthesis including ()
 - vib: mark block inside of parenthesis excluding ()
+- ]s: next spelling mistake
+- [s: previous spelling mistake
 
 
 #### Deletion mode
