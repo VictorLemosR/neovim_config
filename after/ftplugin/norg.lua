@@ -11,6 +11,7 @@ vim.keymap.set({"i", "c"}, "~A", "Ã", {buffer = true})
 vim.keymap.set({"i", "c"}, "~o", "õ", {buffer = true})
 vim.keymap.set({"i", "c"}, "~O", "Õ", {buffer = true})
 vim.keymap.set({"i", "c"}, "'c", "ç", {buffer = true})
+vim.keymap.set({"i", "c"}, "'C", "Ç", {buffer = true})
 
 vim.keymap.set({"i", "c"}, "'a", "á", {buffer = true})
 vim.keymap.set({"i", "c"}, "'A", "Á", {buffer = true})
