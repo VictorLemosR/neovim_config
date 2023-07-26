@@ -29,7 +29,7 @@ local remaps_plugins =
         interrupt = "<leader>i<leader>",
         exit = "<leader>ie",
         clear = "<leader>irc",
-        open_iron_repl = "<leader>ir",
+        open_iron_repl = "<leader>io",
         restart_iron_repl = "<leader>irr",
     },
     leap = {

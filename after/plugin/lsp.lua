@@ -1,4 +1,4 @@
-local lsp = require("lsp-zero").preset("recommended")
+local lsp = require("lsp-zero").preset({})
 
 -- LSPs for mason to install
 lsp.ensure_installed({
@@ -37,9 +37,11 @@ cmp.setup({
 
 lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
-lsp.setup_servers({'lua_ls', 'pyright'})
 -- (Optional) Configure lua language server for neovim
--- require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+lsp.configure('pyright', {
+  single_file_support = false,
+})
 
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr}

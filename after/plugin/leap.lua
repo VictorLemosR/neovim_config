@@ -12,7 +12,8 @@ leap.opts.equivalence_classes = {
     "iíìî",
     "oóôòõ",
     "uùúû",
-    "cç"
+    "cç",
+    ' \t\r\n'
 }
 -- searchs will be case sensitive
 leap.opts.case_sensitive = true

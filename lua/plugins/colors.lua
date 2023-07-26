@@ -32,7 +32,11 @@ return {
         -- check for other colors, they are all good
         vim.g.sonokai_style = "andromeda"
         vim.g.sonokai_better_performance = 1
+        vim.g.sonokai_colors_override = {
+            yellow = {'#d5b359', '107'},
+        }
         vim.cmd('colorscheme sonokai')
+
     end
     }
 }
