@@ -4,7 +4,6 @@ leap.add_default_mappings()
 leap.init_highlight(true)
 leap.opts.highlight_unlabeled_phase_one_targets = true
 -- Change to not jump to first match
-leap.opts.safe_labels = {}
 -- Match accented characters as non-accented
 leap.opts.equivalence_classes = {
     "aâáãà",
