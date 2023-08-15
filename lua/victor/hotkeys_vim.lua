@@ -64,6 +64,12 @@ elseif vim.fn.hostname() == "" then
     notes_path = 'C:/Victor/Notes'
     vim_path = 'C:/users/victor.reial/appdata/local/nvim'
 
+=======
+if vim.fn.hostname() == "TF-1106" then
+    codes_path = 'U:/codes'
+    notes_path = 'C:/Victor/Notes'
+    vim_path = 'C:/users/victor.santos/appdata/local/nvim'
+>>>>>>> 28747f3f4dd896ffce591317c4011390efe1f805
 end
 
 vim.keymap.set('n', '<leader>tc', '<C-w><C-v>:edit ' .. codes_path .. '<CR>')
