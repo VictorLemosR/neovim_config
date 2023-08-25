@@ -4,6 +4,8 @@ local remaps_plugins =
         git_add = "<leader>ga",
         git_push = "<leader>gps",
         git_pull = "<leader>gpl",
+        git_choose_left = "gh",
+        git_choose_right = "gl",
     },
     harpoon = {
         add = '<leader>a',
