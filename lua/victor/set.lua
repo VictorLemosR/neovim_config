@@ -22,10 +22,11 @@ vim.opt.termguicolors = true
 --lines to keep above and below the cursor for a better context
 vim.opt.scrolloff = 6
 vim.opt.signcolumn = "auto" --testar = "number", a coluna de sign fica no lugar do n´umero, pode ser melhor
-
 vim.opt.updatetime = 100
 --Create colored column at given number of characters
 vim.opt.colorcolumn = "80"
+-- No timeout for shortcuts
+vim.opt.timeout = false
 -- Deactivate highlights after search is finished
 local hl_ns = vim.api.nvim_create_namespace('search')
 local hlsearch_group = vim.api.nvim_create_augroup('hlsearch_group', { clear = true })

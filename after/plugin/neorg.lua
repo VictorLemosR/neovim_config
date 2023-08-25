@@ -15,7 +15,7 @@ require("neorg").setup {
         },
         ["core.concealer"] = {
             config = {
-                folds = false
+                folds = true
             }
         },
         ["core.export"] = {
