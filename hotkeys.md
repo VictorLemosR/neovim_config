@@ -1,5 +1,6 @@
 https://vim.rtorr.com/
 
+:verbose map - see all keymaps
 :nmap - see custom keymaps
 # Custom shortcuts
 
