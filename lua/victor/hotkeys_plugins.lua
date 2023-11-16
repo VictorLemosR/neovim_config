@@ -6,6 +6,7 @@ local remaps_plugins =
         git_pull = "<leader>gpl",
         git_choose_left = "gh",
         git_choose_right = "gl",
+        --git_open_differences = 'dv'
     },
     harpoon = {
         add = '<leader>a',
