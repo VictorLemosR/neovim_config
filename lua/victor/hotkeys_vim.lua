@@ -26,28 +26,32 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 -- Deactivates "Q", which enters in an horrible mode
 vim.keymap.set("n", "Q", "<nop>")
 -- Not sure what it does yet
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+--vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+--vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+--vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+--vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- Incredible replace over the word the cursor is on
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+--vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left>]])
+
 -- Not sure what it does either
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
--- Escape key remap
-vim.keymap.set({'i', 'v'}, 'KJ', '<esc>')
-vim.keymap.set('c', 'KJ', '<c-c>')
-vim.keymap.set({'i', 'v'}, 'JK', '<esc>')
-vim.keymap.set('c', 'JK', '<c-c>')
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- Escape key remap. Used before changing keyboard layout
+--vim.keymap.set({'i', 'v'}, 'KJ', '<esc>')
+--vim.keymap.set('c', 'KJ', '<c-c>')
+--vim.keymap.set({'i', 'v'}, 'JK', '<esc>')
+--vim.keymap.set('c', 'JK', '<c-c>')
+
 -- Change root to the folder of current file
 vim.keymap.set('n', '<leader>tr', ':cd %:h<CR>', { silent = true })
+
 -- Go to normal mode from terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
+
 -- Increase/decrease windows size
-vim.keymap.set('n', '<C-w><C-x>', ':resize +5<CR>', { silent = true })
-vim.keymap.set('n', '<C-w><C-z>', ':resize -5<CR>', { silent = true })
-vim.keymap.set('n', '<C-w><C-i>', ':vertical resize +5<CR>', { silent = true })
-vim.keymap.set('n', '<C-w><C-d>', ':vertical resize -5<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-x>', ':resize +6<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-z>', ':resize -6<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-i>', ':vertical resize +6<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-d>', ':vertical resize -6<CR>', { silent = true })
 -- Save and close buffer
 vim.keymap.set('n', '<leader>w', ':wq<CR>', { silent = true })
 -- Change root to default paths

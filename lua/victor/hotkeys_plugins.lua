@@ -9,8 +9,8 @@ local remaps_plugins =
         --git_open_differences = 'dv'
     },
     harpoon = {
-        add = '<leader>a',
-        menu = '<leader>e',
+        add = '<leader>ha',
+        menu = '<leader>he',
         file1 = '<leader>1',
         file2 = '<leader>2',
         file3 = '<leader>3',
@@ -60,12 +60,21 @@ local remaps_plugins =
         root_to_node = 'tn',
         root_to_parent = 'tp',
     },
+    surround = {--z for zurround
+        normal = '<leader>zi', -- i for insert
+        visual = '<leader>zv',
+        delete = '<leader>zd',
+        change = '<leader>zr', --r for replace
+    },
     telescope = {
         find_files = '<leader>ff',
         grep_search = '<leader>fg',
         buffers = '<leader>fb',
         help = '<leader>fh',
         git_files = '<leader>fg'
+    },
+    treesitter = {
+        --s to open file 
     },
     undo_tree = {
         open_tree = '<leader>u'

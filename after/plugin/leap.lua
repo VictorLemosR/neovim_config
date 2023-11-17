@@ -15,3 +15,7 @@ leap.opts.equivalence_classes = {
 }
 -- searchs will be case sensitive
 leap.opts.case_sensitive = true
+leap.safe_labels = {
+    "s", "f", "n", "u", "t", "m", ",", "_",
+    "S", "F", "N", "L", "H", "M", "U", "G", "T", "?", "Z"
+}

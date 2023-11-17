@@ -27,10 +27,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 cmp.setup({
     sources = {
-        { name = "path" },
+        --{ name = "path" }, --Disliked. Showed so many options, if I understood right
         { name = "nvim_lsp" },
-        { name = "buffer", keyword_length = 3 },
-        { name = "luasnip", keyword_length = 2 },
+        --{ name = "buffer", keyword_length = 3 }, --Disliked. Showed so many options
+        --{ name = "luasnip", keyword_length = 2 },
         { name = "neorg" },
     },
 })

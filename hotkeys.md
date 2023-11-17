@@ -7,7 +7,7 @@ https://vim.rtorr.com/
 # Default shortcuts
 #### Motions
 - 0: start of line
-- ^: first non-blank character of line
+- ^ or _: first non-blank character of line
 - 0w: first word of line
 - $: end of line
 - G: end of file
