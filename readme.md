@@ -22,3 +22,5 @@ https://cloud.google.com/nodejs/docs/setup#installing_nvm
 8. Download pt-utf8 and add it to folder: nvim\share\nvim\runtime\spell
 https://ftp.nluug.nl/pub/vim/runtime/spell/
 
+# Update
+Just repeat steps 4 and 8

@@ -1,3 +1,3 @@
-require("victor.hotkeys_plugins")
+require("victor.vim_configuration")
 require("victor.hotkeys_vim")
-require("victor.set")
+require("victor.hotkeys_plugins")

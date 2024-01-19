@@ -1,5 +1,24 @@
+-- Letters used after <leader>
+-- g: github
+-- h: harpoon
+-- i: iron
+-- l: lsp
+-- t: nvim_tree
+-- s: surround
+-- f: telescope
+-- d: trouble
+-- u: undo_tree
 local remaps_plugins =
 {
+    debugger  =  {
+        run  = '<F5>',
+        toggle_breakpoint = '<F8>',
+        step_over = '<F10>',
+        step_into = '<F11>',
+        step_out = '<F12>',
+        test_class = '<F1>',
+        test_method = '<F2>',
+    },
     fugitive = {
         git_add = "<leader>ga",
         git_push = "<leader>gps",
@@ -23,7 +42,7 @@ local remaps_plugins =
         visual_send = "<leader>is",
         send_file = "<leader>if",
         send_line = "<leader>il",
-        send_until_cursor = "<leader>ic",
+--        send_until_cursor = "<leader>ic",
 --        send_mark = "", -- didn't enjoy (or understand) the mark advantage
 --        mark_motion = "", -- didn't enjoy (or understand) the mark advantage
 --        mark_visual = "", -- didn't enjoy (or understand) the mark advantage
@@ -31,9 +50,9 @@ local remaps_plugins =
         cr = "<leader>ii",
         interrupt = "<leader>i<leader>",
         exit = "<leader>ie",
-        clear = "<leader>irc",
+        clear = "<leader>ic",
         open_iron_repl = "<leader>io",
-        restart_iron_repl = "<leader>irr",
+        restart_iron_repl = "<leader>ir",
     },
     leap = {
         -- s - search forward
@@ -41,40 +60,47 @@ local remaps_plugins =
     },
     lsp = {
         -- remap some of defaults functions of vim for lsp. In case there is nothing to show, default pattern is used
-       go_to_definition = 'gd',
-       hover = 'K',
-       workspace_symbol = '<leader>vws',
-       open_float = '<leader>vd',
-       go_to_next = '[d',
-       go_to_prev = ']d',
-       code_action = '<leader>vca',
-       references = '<leader>vrr',
-       rename = '<leader>vrn',
-       signature_help = '<C-h>',
+       go_to_definition = '<leader>ld',
+       hover = '<leader>lh',
+       workspace_symbol = '<leader>lw',
+       open_float = '<leader>lo',
+       go_to_next = '<leader>ln',
+       go_to_prev = '<leader>lp',
+       code_action = '<leader>lc',
+       references = '<leader>li', --i for imports
+       rename = '<leader>lr',
+       signature_help = '<leader>lh',
+       format = '<leader>lf'
     },
     nvim_tree = {
         open_tree = '<leader>tt',
-        open_on_notes = '<leader>tp',
+        open_on_notes = '<leader>tn',
         open_on_codes = '<leader>tc',
+        open_on_vim = '<leader>tv',
+        root_to_directory = '<leader>tr',
         -- when tree is open
         root_to_node = 'tn',
         root_to_parent = 'tp',
+        -- s to open file in windows
     },
-    surround = {--z for zurround
-        normal = '<leader>zi', -- i for insert
-        visual = '<leader>zv',
-        delete = '<leader>zd',
-        change = '<leader>zr', --r for replace
+    surround = {
+        normal = '<leader>si', -- i for insert
+        visual = '<leader>sv',
+        delete = '<leader>sd',
+        change = '<leader>sr', --r for replace
     },
     telescope = {
         find_files = '<leader>ff',
         grep_search = '<leader>fg',
         buffers = '<leader>fb',
         help = '<leader>fh',
-        git_files = '<leader>fg'
+        git_files = '<leader>fg',
+        help_tags = '<leader>fh'
     },
-    treesitter = {
-        --s to open file 
+    trouble = {
+        toggle = '<leader>dt',
+        next = '<leader>dn',
+        previous = '<leader>dp'
     },
     undo_tree = {
         open_tree = '<leader>u'

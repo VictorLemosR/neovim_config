@@ -1,9 +1,23 @@
 return {
- "folke/trouble.nvim",
- dependencies = { "nvim-tree/nvim-web-devicons" },
- opts = {
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
- },
+    "folke/trouble.nvim",
+
+    config = function ()
+        local  remaps_plugins = require("victor.hotkeys_plugins")
+        KEYS = remaps_plugins.trouble
+        require('trouble').setup({
+            icons = false
+        })
+
+        vim.keymap.set('n', KEYS.toggle, function ()
+            require('trouble').toggle()
+        end)
+
+        vim.keymap.set('n', KEYS.next, function ()
+            require('trouble').next({skip_groups = true, jump = true})
+        end)
+
+        vim.keymap.set('n', KEYS.previous, function ()
+            require('trouble').previous({skip_groups = true, jump = true})
+        end)
+    end
 }

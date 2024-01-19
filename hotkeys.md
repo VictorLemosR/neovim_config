@@ -42,6 +42,9 @@ https://vim.rtorr.com/
 - ]s: next spelling mistake
 - [s: previous spelling mistake
 - ~: while in visual mode, switch case
+- ma: put a mark on a line. move to it using 'a
+-- mb: put a mark on another line and move to it using 'b
+-- `a move to exact character location of the mark
 
 #### Deletion mode
 
