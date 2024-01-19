@@ -24,7 +24,7 @@ vim.keymap.set({"n", "v"}, "<A-v>", [["+gp]])
 vim.keymap.set({"i", "c"}, "<A-v>", "<C-r>+")
 
 -- Delete without losing copied text in buffer
-vim.keymap.set({"v"}, "<leader>d", [["_d]])
+vim.keymap.set({"v"}, "<leader>dd", [["_d]])
 
 -- Increase/decrease windows size
 vim.keymap.set('n', '<C-w><C-x>', ':resize +6<CR>', { silent = true })
