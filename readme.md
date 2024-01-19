@@ -6,7 +6,7 @@
   
 3. install git: https://git-scm.com/downloads
 
-4. install SauceCodePro Nerd Font in folder "C:\windows\fonts\": https://www.nerdfonts.com/font-downloads
+4. install SauceCodePro Nerd Font (ctrl+f: Source code pro) in folder "C:\windows\fonts\": https://www.nerdfonts.com/font-downloads
 
 5. install neovim: https://github.com/neovim/neovim/releases/tag/stable
 
