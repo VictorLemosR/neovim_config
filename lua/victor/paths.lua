@@ -14,6 +14,6 @@ else
     paths.notes_folder = 'C:/Victor/Notes'
 end
 paths.vim_folder = paths.user_folder .. "/appdata/local/nvim"
-paths.python_file = paths.user_folder .. "/AppData/Local/Programs/Python/Python311/python.exe"
+paths.python_file = paths.user_folder .. "/AppData/Local/Programs/Python/Python312/python.exe"
 
 return paths

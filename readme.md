@@ -4,23 +4,26 @@
    1.1. Change PATH to your default opening folder
    1.2. If your pc does not have a gpu, like my pc from work, change in wezterm.lua ' config.front_end = "Software" ')
   
-3. install git: https://git-scm.com/downloads
+2. install SauceCodePro Nerd Font (ctrl+f: Source code pro) in folder "C:\windows\fonts\": https://www.nerdfonts.com/font-downloads
 
-4. install SauceCodePro Nerd Font (ctrl+f: Source code pro) in folder "C:\windows\fonts\": https://www.nerdfonts.com/font-downloads
+3. install neovim: https://github.com/neovim/neovim/releases/tag/stable.
 
-5. install neovim: https://github.com/neovim/neovim/releases/tag/stable
+4. Download ripgrep: https://github.com/BurntSushi/ripgrep/releases
 
-6. Download ripgrep and add to path: https://github.com/BurntSushi/ripgrep/releases
+5. Install C compiller for windows needed for treesitter (tips here https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support): https://www.mingw-w64.org/downloads/, chose "LLVM-MinGW"
 
-7. Install C compiller for windows needed for treesitter (tips here https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support): https://www.mingw-w64.org/downloads/, chose "LLVM-MinGW" and add to path the \bin folder inside the .zip
+6. install nvm for Windows: https://github.com/coreybutler/nvm-windows (https://github.com/coreybutler/nvm-windows/wiki#manual-installation)
+Then run "nvm install latest" https://cloud.google.com/nodejs/docs/setup#installing_nvm
 
-8. install nvm for Windows: https://github.com/coreybutler/nvm-windows
-Then run "nvm install latest" and add to path the new folder, which should be in
-%USERPROFILE%\Appdata\Roaming\nvm\version\
-https://cloud.google.com/nodejs/docs/setup#installing_nvm
-
-9. Download pt-utf8 and add it to folder: nvim\share\nvim\runtime\spell
+7. Download pt-utf8 and add it to folder: nvim\share\nvim\runtime\spell
 https://ftp.nluug.nl/pub/vim/runtime/spell/
+
+8. Add to your path nvim\bin, ripgrep folder, llvm-mingw\bin, nvm folder: which should be in
+%USERPROFILE%\Appdata\Roaming\nvm\version\
+	8.1. To install without admin privileges, run inside cmd: 
+	setx PATH "%PATH%;C:\NEW\FOLDER\TO\PATH"
+
+9. install git: https://git-scm.com/downloads
 
 # Update
 Just repeat steps 4 and 8
