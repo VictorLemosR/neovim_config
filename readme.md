@@ -25,5 +25,7 @@ https://ftp.nluug.nl/pub/vim/runtime/spell/
 
 9. install git: https://git-scm.com/downloads
 
+10. Install lua: https://github.com/rjpcomputing/luaforwindows/releases (needed for neorg)
+
 # Update
 Just repeat steps 4 and 8

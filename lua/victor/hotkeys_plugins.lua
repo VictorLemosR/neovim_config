@@ -10,6 +10,28 @@
 -- u: undo_tree
 local remaps_plugins =
 {
+    copilot_chat = {
+        help_actions = "<leader>ch",
+        prompt_actions = "<leader>cp",
+        explain = "<leader>ce",
+        generate_tests = "<leader>ct",
+        review_code = "<leader>cr",
+        refactor_code = "<leader>cR",
+        better_namings = "<leader>cn",
+        open_vertical = "<leader>cv",
+        inline_chat = "<leader>cc",
+        ask = "<leader>ca",
+        commit_message = "<leader>cm",
+        quick_chat = "<leader>cq",
+        debug = "<leader>cd",
+        diagnostics = "<leader>cd",
+    },
+    copilot_completions = {
+        accept = "<C-c><C-a>",
+        next = "<C-c><C-n>",
+        prev = "<C-c><C-p>",
+        dismiss = "<C-c><C-c>",
+    },
     debugger  =  {
         run  = '<F5>',
         toggle_breakpoint = '<F8>',
@@ -95,7 +117,9 @@ local remaps_plugins =
         buffers = '<leader>fb',
         help = '<leader>fh',
         git_files = '<leader>fg',
-        help_tags = '<leader>fh'
+        help_tags = '<leader>fh',
+        keymaps = '<leader>fk',
+        word = '<leader>fw',
     },
     trouble = {
         toggle = '<leader>dt',

@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 
 -- Execute program
-vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end)
+-- vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end)
 
 --Move whole block while in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -26,6 +26,9 @@ vim.keymap.set({"i", "c"}, "<A-v>", "<C-r>+")
 -- Delete without losing copied text in buffer
 vim.keymap.set({"v"}, "<leader>dd", [["_d]])
 
+-- Format text to be wraped at the textwidth limit
+vim.keymap.set('n', '<leader><leader>', 'gggqG')
+
 -- Increase/decrease windows size
 vim.keymap.set('n', '<C-w><C-x>', ':resize +6<CR>', { silent = true })
 vim.keymap.set('n', '<C-w><C-z>', ':resize -6<CR>', { silent = true })
@@ -38,6 +41,8 @@ vim.keymap.set('n', '<leader>w', ':wq<CR>', { silent = true })
 -- Incredible replace over the word the cursor is on
 vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left>]])
 
+-- Encapsulate word with print()
+vim.keymap.set("n", "<leader>sp", [[:s/\(\s*\)\(.*\)/\1print(\2)<CR>]])
 -- Not sure what it does yet
 --vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 --vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")

@@ -18,14 +18,17 @@ vim.opt.undodir = user_folder .. "/appdata/local/nvim/undodir" --that only works
 vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.backup = false
---enable 24bit colors
+--enable 24bit color
 vim.opt.termguicolors = true
 --lines to keep above and below the cursor for a better context
 vim.opt.scrolloff = 6
 vim.opt.signcolumn = 'number' --'--testar = "number", a coluna de sign fica no lugar do n´umero, pode ser melhor
 vim.opt.updatetime = 100
+--don't fold any file (maybe let on norg and markdown)
+vim.opt.foldenable = false
 --Create colored column at given number of characters
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "85"
+--vim.opt.tw = 85
 -- No timeout for shortcuts
 vim.opt.timeout = false
 -- Deactivate highlights after search is finished

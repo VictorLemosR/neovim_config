@@ -4,7 +4,7 @@ return {
 
     config = function ()
         local remaps_plugins = require("victor.hotkeys_plugins")
-        KEYS = remaps_plugins.nvim_tree
+        local KEYS = remaps_plugins.nvim_tree
 
         -- Custom mappings
         vim.keymap.set('n', KEYS.open_tree, ":NvimTreeFindFileToggle!<CR>")
@@ -18,8 +18,6 @@ return {
         vim.opt.termguicolors = true
         local function my_on_attach(bufnr)
             local api = require "nvim-tree.api"
-            local remaps_plugins = require("victor.hotkeys_plugins")
-            KEYS = remaps_plugins.nvim_tree
             local function opts(desc)
                 return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
             end
@@ -44,7 +42,8 @@ return {
                 group_empty = true,
             },
             filters = {
-                dotfiles = false,
+                dotfiles = true,
+                custom = {'^_'},
             },
             on_attach = my_on_attach,
             actions = {

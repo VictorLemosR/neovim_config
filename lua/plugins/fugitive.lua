@@ -3,7 +3,7 @@ return {
 
     config = function ()
         local remaps_plugins = require("victor.hotkeys_plugins")
-        KEYS = remaps_plugins.fugitive
+        local KEYS = remaps_plugins.fugitive
 
         vim.keymap.set("n", KEYS.git_add, ":G add .<CR>:G<CR>")
         vim.keymap.set("n", KEYS.git_push, ":G push master")

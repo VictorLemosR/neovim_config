@@ -20,16 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
--- Code from net, re-look into it after
-function url_encode(str)
-  if str then
-    str = str:gsub("\n", "\r\n")
-    str = str:gsub("([^%w %-%_%.%~])",
-      function(c) return string.format("%%%02X", string.byte(c)) end)
-    str = str:gsub(" ", "+")
-  end
-  return str
-end
 
 -- Code to open new window in wezterm in same directory as the current window
 --https://github.com/wez/wezterm/discussions/3718

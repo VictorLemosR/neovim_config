@@ -1,3 +1,5 @@
+--https://github.com/astral-sh/ruff-lsp/issues/384
+-- Ajeitar o ruff-lsp para funcionar com o pyright
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -25,6 +27,7 @@ return {
         require('mason-lspconfig').setup({
             ensure_installed = {
                 "pyright", -- (python lsp) one of the primary mainteners of the lsp client is fan of it
+                'ruff_lsp',
                 "lua_ls", --(only lua lsp)
             },
             handlers = {
@@ -131,18 +134,3 @@ return {
         })
     end
 }
-
---        -- Tools for mason to install. Linters and formatters should be configured on null-ls after
---        require("mason-tool-installer").setup({
---            ensure_installed = {
---                --    {'debugpy', auto_update = true}, -- (python debugger) only one by the time I made the config (06/23)
---                { "ruff", auto_update = true }, -- (python  linter) way faster than the others, coded in rust, lots of stars in git
---                { "black", auto_update = true }, -- (python formatter) - Black gives you speed, determinism. You will save time and mental energy for more important matters.lua-language-server, -- (only lua LSP)
---                { "selene", auto_update = true }, -- (Lua linter) written in rust
---                { "stylua", auto_update = true }, -- (lua formatter)
---            },
---        })
---
-
-
-

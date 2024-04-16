@@ -1,6 +1,7 @@
 -- Few options for markdown and norg formats
 vim.opt_local.wrap = true
-vim.opt_local.textwidth = 80
+vim.opt_local.colorcolumn = "120"
+vim.opt_local.textwidth = 120
 vim.opt_local.spelllang = 'pt,en_us'
 vim.opt_local.expandtab = false
 

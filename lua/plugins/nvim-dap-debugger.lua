@@ -3,6 +3,7 @@ return{
     dependencies = {
         'mfussenegger/nvim-dap-python',
         'rcarriga/nvim-dap-ui',
+        "nvim-neotest/nvim-nio",
     },
 
     config = function ()

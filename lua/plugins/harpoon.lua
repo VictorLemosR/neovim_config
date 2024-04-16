@@ -4,7 +4,7 @@ return {
 
     config = function ()
         local remaps_plugins = require("victor.hotkeys_plugins")
-        KEYS = remaps_plugins.harpoon
+        local KEYS = remaps_plugins.harpoon
 
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")
