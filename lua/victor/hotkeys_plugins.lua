@@ -34,12 +34,12 @@ local remaps_plugins =
     },
     debugger  =  {
         run  = '<F5>',
-        toggle_breakpoint = '<F8>',
-        step_over = '<F10>',
+        toggle_breakpoint = '<F9>',
+        step_over = '<F8>',
         step_into = '<F11>',
         step_out = '<F12>',
-        test_class = '<F1>',
-        test_method = '<F2>',
+        test_class = '<F13>',
+        test_method = '<F14>',
     },
     fugitive = {
         git_add = "<leader>ga",

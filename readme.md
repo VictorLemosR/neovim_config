@@ -25,7 +25,12 @@ https://ftp.nluug.nl/pub/vim/runtime/spell/
 
 9. install git: https://git-scm.com/downloads
 
-10. Install lua: https://github.com/rjpcomputing/luaforwindows/releases (needed for neorg)
+10. Install lua: https://github.com/rjpcomputing/luaforwindows/releases (needed for neorg). 
+	10.1 https://vhyrro.github.io/posts/neorg-and-luarocks/#changing-the-configuration
+	run :Lazy build luarocks.nvim and then :Lazy build neorg, in case there is some problem with luarocks
+
+11. In case your homedrive is not in c:, create a HOME variable. Open cmd and type: setx HOME "C:". Needed for
+	copilot-chat
 
 # Update
 Just repeat steps 4 and 8

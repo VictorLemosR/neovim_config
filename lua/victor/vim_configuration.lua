@@ -69,3 +69,4 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "Q", "<nop>")
 -- Go to normal mode from terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
+

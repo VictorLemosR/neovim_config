@@ -30,8 +30,8 @@ vim.keymap.set({"v"}, "<leader>dd", [["_d]])
 vim.keymap.set('n', '<leader><leader>', 'gggqG')
 
 -- Increase/decrease windows size
-vim.keymap.set('n', '<C-w><C-x>', ':resize +6<CR>', { silent = true })
-vim.keymap.set('n', '<C-w><C-z>', ':resize -6<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-x>', ':resize +3<CR>', { silent = true })
+vim.keymap.set('n', '<C-w><C-z>', ':resize -3<CR>', { silent = true })
 vim.keymap.set('n', '<C-w><C-i>', ':vertical resize +6<CR>', { silent = true })
 vim.keymap.set('n', '<C-w><C-d>', ':vertical resize -6<CR>', { silent = true })
 
@@ -70,3 +70,20 @@ vim.keymap.set('n', KEYS.open_on_codes, '<C-w><C-v>:edit ' .. codes_folder .. '<
 vim.keymap.set('n', KEYS.open_on_notes, '<C-w><C-v>:edit ' .. notes_folder .. '<CR>')
 vim.keymap.set('n', KEYS.open_on_vim, '<C-w><C-v>:edit ' .. vim_folder .. '<CR>')
 vim.keymap.set('n', KEYS.root_to_directory, ':cd %:h<CR>', { silent = true })
+
+-- Function to insert prints for debugging
+local print_counter = 0
+function InsertDebugPrint()
+    print_counter = print_counter + 1
+    print(print_counter)
+    local pos = vim.api.nvim_win_get_cursor(0)[2]
+    local line = vim.api.nvim_get_current_line()
+    local nline = line:sub(0, pos) .. 'print("debugging '.. print_counter ..'")' .. line:sub(pos + 2)
+    vim.api.nvim_set_current_line(nline)
+    return print_counter
+end
+vim.keymap.set("n", "<F1>", "O<cmd>lua InsertDebugPrint()<CR><esc>")
+vim.keymap.set("i", "<F1>", "<esc>O<cmd>lua InsertDebugPrint()<CR><esc>")
+vim.keymap.set("n", "<F2>", "bywOprint(<esc>pa)<esc>")
+vim.keymap.set("i", "<F2>", "<esc>bywOprint(<esc>pa)<esc>")
+
