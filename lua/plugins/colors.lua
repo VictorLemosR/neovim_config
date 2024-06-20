@@ -38,5 +38,13 @@ return {
         vim.cmd('colorscheme sonokai')
 
     end
-    }
+    },
+
+    {"rebelot/kanagawa.nvim", priority = 1000, lazy = true,
+    config = function()
+        --vim.cmd('colorscheme kanagawa-wave')
+        vim.cmd('colorscheme kanagawa-dragon')
+        --vim.cmd('colorscheme kanagawa-lotus')
+    end
+    },
 }

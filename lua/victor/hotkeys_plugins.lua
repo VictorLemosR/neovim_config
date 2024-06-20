@@ -47,11 +47,11 @@ local remaps_plugins =
         git_pull = "<leader>gpl",
         git_choose_left = "gh",
         git_choose_right = "gl",
-        --git_open_differences = 'dv'
+        git_open_differences = 'dv', --not implemented automatically
     },
     harpoon = {
         add = '<leader>ha',
-        menu = '<leader>he',
+        menu = '<leader>hl',
         file1 = '<leader>1',
         file2 = '<leader>2',
         file3 = '<leader>3',
@@ -99,9 +99,10 @@ local remaps_plugins =
         open_on_notes = '<leader>tn',
         open_on_codes = '<leader>tc',
         open_on_vim = '<leader>tv',
+        open_on_personal_codes = '<leader>tp',
         root_to_directory = '<leader>tr',
         -- when tree is open
-        root_to_node = 'tn',
+        root_to_node = 'tr',
         root_to_parent = 'tp',
         -- s to open file in windows
     },
@@ -120,6 +121,12 @@ local remaps_plugins =
         help_tags = '<leader>fh',
         keymaps = '<leader>fk',
         word = '<leader>fw',
+    },
+    toggleterm = {
+        open_terminal = '<leader>te', --must change on plugin file
+        save_run_file = '<leader>rr',
+        run_visual = '<leader>rv',
+        run_line = '<leader>rl',
     },
     trouble = {
         toggle = '<leader>dt',

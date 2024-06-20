@@ -32,5 +32,10 @@ https://ftp.nluug.nl/pub/vim/runtime/spell/
 11. In case your homedrive is not in c:, create a HOME variable. Open cmd and type: setx HOME "C:". Needed for
 	copilot-chat
 
+12. For rust, install rust. Then 
+	12.1) rustup component add rust-src
+	12.2) rustup component add rust-analyzer
+
+
 # Update
 Just repeat steps 4 and 8

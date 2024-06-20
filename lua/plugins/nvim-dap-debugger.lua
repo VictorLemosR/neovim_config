@@ -5,6 +5,7 @@ return{
         'rcarriga/nvim-dap-ui',
         "nvim-neotest/nvim-nio",
     },
+    priority = 10,
 
     config = function ()
         local dap = require('dap')

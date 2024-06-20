@@ -7,19 +7,18 @@ require("victor")
 -- Lazy.nvim install, if not found
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-
 
 -- Code to open new window in wezterm in same directory as the current window
 --https://github.com/wez/wezterm/discussions/3718
@@ -41,3 +40,4 @@ require("lazy").setup("plugins")
 --        autocmd DirChanged * lua _wezterm_osc7_cwd()
 --    augroup END
 --]], false)
+--

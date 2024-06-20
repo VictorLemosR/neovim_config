@@ -7,7 +7,7 @@ return {
                 none_ls.builtins.formatting.stylua,
                 none_ls.builtins.formatting.black,
                 none_ls.builtins.formatting.isort,
-                none_ls.builtins.diagnostics.selene,
+                none_ls.builtins.formatting.prettier,
                 --                none_ls.builtins.diagnostics.eslint,
                 --                none_ls.builtins.completion.spell,
             },

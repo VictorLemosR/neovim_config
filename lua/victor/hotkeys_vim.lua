@@ -16,32 +16,32 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Yank the text to the copy system
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Paste from the system
-vim.keymap.set({"n", "v"}, "<A-v>", [["+gp]])
-vim.keymap.set({"i", "c"}, "<A-v>", "<C-r>+")
+vim.keymap.set({ "n", "v" }, "<A-v>", [["+gp]])
+vim.keymap.set({ "i", "c" }, "<A-v>", "<C-r>+")
 
 -- Delete without losing copied text in buffer
-vim.keymap.set({"v"}, "<leader>dd", [["_d]])
+vim.keymap.set({ "v" }, "<leader>dd", [["_d]])
 
 -- Format text to be wraped at the textwidth limit
-vim.keymap.set('n', '<leader><leader>', 'gggqG')
+vim.keymap.set("n", "<leader><leader>", "gggqG")
 
 -- Increase/decrease windows size
-vim.keymap.set('n', '<C-w><C-x>', ':resize +3<CR>', { silent = true })
-vim.keymap.set('n', '<C-w><C-z>', ':resize -3<CR>', { silent = true })
-vim.keymap.set('n', '<C-w><C-i>', ':vertical resize +6<CR>', { silent = true })
-vim.keymap.set('n', '<C-w><C-d>', ':vertical resize -6<CR>', { silent = true })
+vim.keymap.set("n", "<C-w><C-x>", ":resize +3<CR>", { silent = true })
+vim.keymap.set("n", "<C-w><C-z>", ":resize -3<CR>", { silent = true })
+vim.keymap.set("n", "<C-w><C-i>", ":vertical resize +6<CR>", { silent = true })
+vim.keymap.set("n", "<C-w><C-d>", ":vertical resize -6<CR>", { silent = true })
 
 -- Save and close buffer
-vim.keymap.set('n', '<leader>w', ':wq<CR>', { silent = true })
+vim.keymap.set("n", "<leader>w", ":wq<CR>", { silent = true })
 
 -- Incredible replace over the word the cursor is on
 vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left>]])
 
--- Encapsulate word with print()
+-- Encapsulate line with print()
 vim.keymap.set("n", "<leader>sp", [[:s/\(\s*\)\(.*\)/\1print(\2)<CR>]])
 -- Not sure what it does yet
 --vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -62,40 +62,23 @@ local paths = require("victor.paths")
 local codes_folder = paths.codes_folder
 local notes_folder = paths.notes_folder
 local vim_folder = paths.vim_folder
+local personal_codes_folder = paths.personal_codes_folder
 
-local remaps = require('victor.hotkeys_plugins')
+local remaps = require("victor.hotkeys_plugins")
 local KEYS = remaps.nvim_tree
 
-vim.keymap.set('n', KEYS.open_on_codes, '<C-w><C-v>:edit ' .. codes_folder .. '<CR>')
-vim.keymap.set('n', KEYS.open_on_notes, '<C-w><C-v>:edit ' .. notes_folder .. '<CR>')
-vim.keymap.set('n', KEYS.open_on_vim, '<C-w><C-v>:edit ' .. vim_folder .. '<CR>')
-vim.keymap.set('n', KEYS.root_to_directory, ':cd %:h<CR>', { silent = true })
+vim.keymap.set("n", KEYS.open_on_codes, "<C-w><C-v>:edit " .. codes_folder .. "<CR>")
+vim.keymap.set("n", KEYS.open_on_notes, "<C-w><C-v>:edit " .. notes_folder .. "<CR>")
+vim.keymap.set("n", KEYS.open_on_vim, "<C-w><C-v>:edit " .. vim_folder .. "<CR>")
+vim.keymap.set("n", KEYS.open_on_personal_codes, "<C-w><C-v>:edit " .. personal_codes_folder .. "<CR>")
+vim.keymap.set("n", KEYS.root_to_directory, ":cd %:h<CR>", { silent = true })
 
--- Function to insert prints for debugging
-local print_counter = 0
-function insert_print()
-    print_counter = print_counter + 1
-    local pos = vim.api.nvim_win_get_cursor(0)[2]
-    local line = vim.api.nvim_get_current_line()
-    local nline = line:sub(0, pos) .. 'print("debugging '.. print_counter ..'")' .. line:sub(pos + 2)
-    vim.api.nvim_set_current_line(nline)
-end
-function print_variable()
-
-    local pos = vim.api.nvim_win_get_cursor(0)[2]
-    local line = vim.api.nvim_get_current_line()
-    if pos < 5 then
-        return
-    end
-    local check_self = line:sub(pos-4, pos)
-    if check_self == "self." then
-        vim.cmd('normal bbveeey')
-        return
-    end
-end
-
-vim.keymap.set("n", "<F1>", "O<cmd>lua insert_print()<CR><esc>")
-vim.keymap.set("i", "<F1>", "<esc>O<cmd>lua insert_print()<CR><esc>")
-vim.keymap.set("n", "<F2>", "yiw<cmd>lua print_variable()<CR>Oprint(<esc>pa)<esc>")
-vim.keymap.set("n", "<F2>", "<esc>yiw<cmd>lua print_variable()<CR>Oprint(<esc>pa)<esc>")
-
+--Append without moving cursor
+vim.keymap.set("n", "J", "mzJ`z")
+--Searched words are kept in middle
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+-- Deactivates "Q", which enters in an horrible mode
+vim.keymap.set("n", "Q", "<nop>")
+-- Go to normal mode from terminal mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })

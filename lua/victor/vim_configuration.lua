@@ -22,51 +22,18 @@ vim.opt.backup = false
 vim.opt.termguicolors = true
 --lines to keep above and below the cursor for a better context
 vim.opt.scrolloff = 6
-vim.opt.signcolumn = 'number' --'--testar = "number", a coluna de sign fica no lugar do n´umero, pode ser melhor
+vim.opt.signcolumn = 'number'
 vim.opt.updatetime = 100
 --don't fold any file (maybe let on norg and markdown)
 vim.opt.foldenable = false
 --Create colored column at given number of characters
 vim.opt.colorcolumn = "85"
 --vim.opt.tw = 85
+-- Split screens
+vim.opt.equalalways = false -- When a new window is created, it is not resized
+vim.opt.splitright = true -- New windows are created to the right
 -- No timeout for shortcuts
 vim.opt.timeout = false
--- Deactivate highlights after search is finished
-local hl_ns = vim.api.nvim_create_namespace('search')
-local hlsearch_group = vim.api.nvim_create_augroup('hlsearch_group', { clear = true })
-
-local function manage_hlsearch(char)
-  local key = vim.fn.keytrans(char)
-  local keys = { '<CR>', 'n', 'N', '*', '#', '?', '/' }
-
-  if vim.fn.mode() == 'n' then
-    if not vim.tbl_contains(keys, key) then
-      vim.cmd([[ :set nohlsearch ]])
-    elseif vim.tbl_contains(keys, key) then
-      vim.cmd([[ :set hlsearch ]])
-    end
-  end
-
-  vim.on_key(nil, hl_ns)
-end
-
-vim.api.nvim_create_autocmd('CursorMoved', {
-  group = hlsearch_group,
-  callback = function()
-    vim.on_key(manage_hlsearch, hl_ns)
-  end,
-})
 -- Set underscore to keyword, so 'w', for example, don't ignore it
 -- another solutions is to use 'f_' to move and 'ct_' to delete between words
 --vim.opt.iskeyword:remove("_")
-
---Append without moving cursor
-vim.keymap.set("n", "J", "mzJ`z")
---Searched words are kept in middle
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
--- Deactivates "Q", which enters in an horrible mode
-vim.keymap.set("n", "Q", "<nop>")
--- Go to normal mode from terminal mode
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
-

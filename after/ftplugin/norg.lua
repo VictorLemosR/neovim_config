@@ -4,6 +4,9 @@ vim.opt_local.colorcolumn = "120"
 vim.opt_local.textwidth = 120
 vim.opt_local.spelllang = 'pt,en_us'
 vim.opt_local.expandtab = false
+vim.opt_local.foldenable = true
+vim.opt_local.conceallevel = 2
+vim.opt_local.concealcursor = "nv"
 
 -- I've disabled dead keys on terminal and reactivated them this way only for
 -- markdown and text formats
