@@ -112,7 +112,7 @@ vim.keymap.set("n", KEYS.save_run_file, function()
         local command = 'python "' .. file .. '"'
 
         vim.cmd(":w")
-        toggleterm.exec("cls&" .. command)
+        toggleterm.exec("cls\n\n&" .. command)
     elseif filetype == "rust" then
         local command = "cargo run"
 

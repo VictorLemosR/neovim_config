@@ -10,7 +10,10 @@ if quest_computer then
     paths.codes_folder = paths.user_folder .. '/OneDrive - QUEST INVESTIMENTOS LTDA/Trading/Codes'
     paths.notes_folder = 'C:/Victor/Notes'
     paths.personal_codes_folder = 'C:/Victor/Algorithms'
-
+elseif vim.fn.hostname() == "VICTOR-DESKTOP" then
+    paths.codes_folder = 'D:/Victor/Codes'
+    paths.notes_folder = 'D:/Victor/Notes'
+    paths.personal_codes_folder = 'D:/Victor/Codes'
 -- Any specific computer that shares my vim configuration, like my home computer
 elseif vim.fn.hostname() == "" then
     paths.codes_folder = 'C:/Victor/Codes'
