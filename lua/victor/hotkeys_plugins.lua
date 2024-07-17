@@ -125,8 +125,9 @@ local remaps_plugins =
     toggleterm = {
         open_terminal = '<leader>te', --must change on plugin file
         save_run_file = '<leader>rr',
-        run_visual = '<leader>rv',
-        run_line = '<leader>rl',
+        save_run_tests = '<leader>rt',
+        run_send = '<leader>rs',
+        run_file = '<leader>rf',
     },
     trouble = {
         toggle = '<leader>dt',

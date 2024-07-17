@@ -22,6 +22,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Paste from the system
 vim.keymap.set({ "n", "v" }, "<A-v>", [["+gp]])
 vim.keymap.set({ "i", "c" }, "<A-v>", "<C-r>+")
+vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+")
 
 -- Delete without losing copied text in buffer
 vim.keymap.set({ "v" }, "<leader>dd", [["_d]])
@@ -32,8 +33,8 @@ vim.keymap.set("n", "<leader><leader>", "gggqG")
 -- Increase/decrease windows size
 vim.keymap.set("n", "<C-w><C-x>", ":resize +3<CR>", { silent = true })
 vim.keymap.set("n", "<C-w><C-z>", ":resize -3<CR>", { silent = true })
-vim.keymap.set("n", "<C-w><C-i>", ":vertical resize +6<CR>", { silent = true })
-vim.keymap.set("n", "<C-w><C-d>", ":vertical resize -6<CR>", { silent = true })
+vim.keymap.set("n", "<C-w><C-i>", ":vertical resize +10<CR>", { silent = true })
+vim.keymap.set("n", "<C-w><C-d>", ":vertical resize -10<CR>", { silent = true })
 
 -- Save and close buffer
 vim.keymap.set("n", "<leader>w", ":wq<CR>", { silent = true })

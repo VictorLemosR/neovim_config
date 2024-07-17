@@ -7,14 +7,14 @@ require("victor")
 -- Lazy.nvim install, if not found
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -41,3 +41,19 @@ require("lazy").setup("plugins")
 --    augroup END
 --]], false)
 --
+--
+require("nvim-treesitter.configs").setup({
+    ensure_installed = { "python", "lua", "query", "rust", "norg" },
+
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = true,
+
+    -- Automatically install missing parsers when entering buffer
+    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+    auto_install = true,
+
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+})
