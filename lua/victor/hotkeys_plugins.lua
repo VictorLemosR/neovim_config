@@ -36,7 +36,7 @@ local remaps_plugins =
         run  = '<F5>',
         toggle_breakpoint = '<F9>',
         step_over = '<F8>',
-        step_into = '<F11>',
+        step_into = '<F6>',
         step_out = '<F12>',
         test_class = '<F13>',
         test_method = '<F14>',
@@ -123,7 +123,7 @@ local remaps_plugins =
         word = '<leader>fw',
     },
     toggleterm = {
-        open_terminal = '<leader>te', --must change on plugin file
+        open_terminal = '<leader>ro', --must change on plugin file
         save_run_file = '<leader>rr',
         save_run_tests = '<leader>rt',
         run_send = '<leader>rs',

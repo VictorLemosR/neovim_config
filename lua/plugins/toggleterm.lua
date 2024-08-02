@@ -10,7 +10,7 @@ return {
             --        return 20
             --    end
             --end,
-            open_mapping = [[<C-t>e]],
+            open_mapping = [[<C-t>asrt]],
             hide_numbers = false,
             direction = "vertical", -- | 'horizontal' | 'tab' | 'float',
             start_in_insert = false,
@@ -58,7 +58,7 @@ return {
             local filetype = vim.bo.filetype
             local toggleterm = require("toggleterm")
             if filetype == "rust" then
-                local command = "cargo test"
+                local command = "cargo llvm-cov nextest --show-missing-lines"
 
                 vim.cmd("w")
                 local change_directory = "cd " .. vim.fn.expand("%:p:h")
@@ -77,7 +77,9 @@ return {
             local filetype = vim.bo.filetype
             local toggleterm = require("toggleterm")
             if filetype == "rust" then
-                --Escrever rust
+                local change_directory = "cd " .. vim.fn.expand("%:p:h") .. "&cls"
+                toggleterm.exec(change_directory, RUST_TERMINAL_WINDOW)
+                toggleterm.send_lines_to_terminal("visual_selection", false, { args = RUST_TERMINAL_WINDOW })
             elseif filetype == "python" or filetype == "lua" then
                 local ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
                 if ipython_terminal == nil then
@@ -128,11 +130,13 @@ return {
                 vim.fn.chansend(job_id, data)
                 vim.defer_fn(function()
                     vim.fn.chansend(job_id, enter_in_string)
-                end, 1000)
+                end, 2000)
             else
                 vim.notify("Language not supported for visual run", vim.log.levels.ERROR)
             end
             vim.api.nvim_set_current_win(main_win)
         end, { desc = "Put file to run on save" })
+
+        vim.keymap.set("n", KEYS.open_terminal, ":ToggleTermToggleAll<CR>")
     end,
 }

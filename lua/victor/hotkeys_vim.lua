@@ -21,8 +21,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Paste from the system
 vim.keymap.set({ "n", "v" }, "<A-v>", [["+gp]])
-vim.keymap.set({ "i", "c" }, "<A-v>", "<C-r>+")
-vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+")
+vim.keymap.set({ "i", "c", "t" }, "<A-v>", "<C-r>+")
+vim.keymap.set({ "i", "c", "t" }, "<C-v>", "<C-r>+")
 
 -- Delete without losing copied text in buffer
 vim.keymap.set({ "v" }, "<leader>dd", [["_d]])

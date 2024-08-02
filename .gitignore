@@ -1,3 +1,4 @@
 journal/
 node_modules/
 undodir/
+*.profraw

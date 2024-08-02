@@ -41,9 +41,13 @@ return {
             renderer = {
                 group_empty = true,
             },
+            git = {
+                enable = true,
+            },
             filters = {
                 dotfiles = true,
-                custom = {'^_'},
+                git_ignored = true,
+                custom = {'^_', '*.profraw'},
             },
             on_attach = my_on_attach,
             actions = {

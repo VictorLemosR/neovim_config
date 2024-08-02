@@ -26,7 +26,6 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 
 -- Function to look for the error line in repl and redirect to the code expecting to be one left window
 function get_line_text()
-    local pos = vim.api.nvim_win_get_cursor(0)[2]
     local line = vim.api.nvim_get_current_line()
     local non_space_code = ""
     for i = 1, string.len(line), 1 do
@@ -38,7 +37,6 @@ function get_line_text()
 
     vim.cmd("wincmd h")
     vim.fn.search(non_space_code)
-    return
 end
 
 vim.keymap.set("n", "<F3>", "<cmd> lua get_line_text()<cr>")
@@ -46,35 +44,65 @@ vim.keymap.set("n", "<F3>", "<cmd> lua get_line_text()<cr>")
 -- Functions to insert print for debugging
 local print_counter = 0
 function insert_print()
+    vim.api.nvim_command("stopinsert")
     print_counter = print_counter + 1
-    local pos = vim.api.nvim_win_get_cursor(0)[2]
-    local line = vim.api.nvim_get_current_line()
-    local nline = line:sub(0, pos) .. 'print("debugging ' .. print_counter .. '")' .. line:sub(pos + 2)
-    vim.api.nvim_set_current_line(nline)
+
+    local filetype = vim.bo.filetype
+    if filetype == "python" or filetype == "lua" then
+        PRINT_TEXT = "print('debugging " .. print_counter .. "')"
+    elseif filetype == "rust" then
+        PRINT_TEXT = "println!('debugging " .. print_counter .. "')"
+    else
+        vim.notify("Insert print not supported for filetype " .. filetype, vim.log.levels.ERROR)
+        return
+    end
+
+    local line = vim.api.nvim_win_get_cursor(0)[1]
+    local spaces = vim.fn.indent(line)
+    local write_print = string.rep(" ", spaces) .. PRINT_TEXT
+    vim.cmd("normal O")
+    vim.api.nvim_set_current_line(write_print)
 end
 
 function print_python_variable()
+    vim.api.nvim_command("stopinsert")
+    vim.cmd("normal yiw")
+
+
     local pos = vim.api.nvim_win_get_cursor(0)[2]
-    local line = vim.api.nvim_get_current_line()
-    local check_self_copied = line:sub(pos + 1, pos + 5)
+    local text_on_line = vim.api.nvim_get_current_line()
+    local check_self_copied = text_on_line:sub(pos + 1, pos + 5)
     if check_self_copied == "self." then
         vim.cmd("normal veeey")
+    elseif pos > 5 then
+        local check_self_before = text_on_line:sub(pos - 4, pos)
+        if check_self_before == "self." then
+            vim.cmd("normal bbveeey")
+        end
+    end
+
+    local yanked_variable = vim.fn.getreg('"')
+    local filetype = vim.bo.filetype
+    if filetype == "python" then
+        PRINT_TEXT = 'print(f"' .. yanked_variable .. ': {' .. yanked_variable .. '}")'
+    elseif filetype == "rust" then
+        PRINT_TEXT = 'println!("' .. yanked_variable .. ': {' .. yanked_variable .. '}")'
+    elseif filetype == "lua" then
+        PRINT_TEXT = 'print("' .. yanked_variable .. ': {' .. yanked_variable .. '}")'
+    else
+        vim.notify("Insert print not supported for filetype " .. filetype, vim.log.levels.ERROR)
         return
     end
-    if pos < 5 then
-        return
-    end
-    local check_self_before = line:sub(pos - 4, pos)
-    if check_self_before == "self." then
-        vim.cmd("normal bbveeey")
-        return
-    end
+
+    local line = vim.api.nvim_win_get_cursor(0)[1]
+    local spaces = vim.fn.indent(line)
+    local write_print = string.rep(" ", spaces) .. PRINT_TEXT
+    vim.cmd("normal O")
+    vim.api.nvim_set_current_line(write_print)
 end
 
-vim.keymap.set("n", "<F1>", "O<cmd>lua insert_print()<CR><esc>")
-vim.keymap.set("i", "<F1>", "<esc>O<cmd>lua insert_print()<CR><esc>")
-vim.keymap.set("n", "<F2>", 'yiw<cmd>lua print_python_variable()<CR>Oprint(f"<esc>pa: {<esc>pa}")<esc>')
-vim.keymap.set("i", "<F2>", '<esc>yiw<cmd>lua print_python_variable()<CR>Oprint(f"<esc>pa: {<esc>pa}")<esc>')
+vim.keymap.set({ "n", "i" }, "<F1>", "<cmd>lua insert_print()<CR>")
+vim.keymap.set({ "n", "i" }, "<F2>", '<cmd>lua print_python_variable()<CR>')
 
 -- Run file on save
 -- CUSTOM_GROUP = vim.api.nvim_create_augroup("run_file_on_save", { clear = true })
@@ -100,4 +128,3 @@ vim.keymap.set("i", "<F2>", '<esc>yiw<cmd>lua print_python_variable()<CR>Oprint(
 --         vim.api.nvim_set_current_win(main_win)
 --     end,
 -- })
-
