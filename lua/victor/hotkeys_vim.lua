@@ -1,9 +1,6 @@
 --[a] Define leader key
 vim.g.mapleader = " "
 
--- Execute program
--- vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end)
-
 --Move whole block while in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -27,8 +24,11 @@ vim.keymap.set({ "i", "c", "t" }, "<C-v>", "<C-r>+")
 -- Delete without losing copied text in buffer
 vim.keymap.set({ "v" }, "<leader>dd", [["_d]])
 
+-- Just to save with :w or :W
+vim.cmd("command! W w")
+
 -- Format text to be wraped at the textwidth limit
-vim.keymap.set("n", "<leader><leader>", "gggqG")
+--vim.keymap.set("n", "<leader><leader>", "gggqG")
 
 -- Increase/decrease windows size
 vim.keymap.set("n", "<C-w><C-x>", ":resize +3<CR>", { silent = true })

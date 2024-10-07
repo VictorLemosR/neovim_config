@@ -37,9 +37,7 @@ If you don't have admin rights, just download the zip file and extract
 9. Install [lua](https://github.com/rjpcomputing/luaforwindows/releases) 
 	- Needed for neorg
 
-10. In case your homedrive is not in c:, create a HOME variable. Open cmd and type: setx HOME "C:". Needed for
-	copilot-chat
-
+10. To use copilotchat, define a home variable in cmd: setx HOME "%USERPROFILE%"
 11. For python, install pynvim: pip install pynvim
 
 12. For rust 
@@ -57,6 +55,9 @@ If you don't have admin rights, just download the zip file and extract
 
 16. For portuguese people, download pt-utf8 from [vim site](https://ftp.nluug.nl/pub/vim/runtime/spell/) and add it to neovim installation folder: nvim\share\nvim\runtime\spell
 
+17. To be able to run rust tests with <space>rt:
+	- cargo install cargo-nextest --locked
+	- cargo +stable install cargo-llvm-cov --locked
 # Update
 1. To update configuration from this git, just repeat step 8
 2. To update neovim, just download latest version and substitute old folder with new

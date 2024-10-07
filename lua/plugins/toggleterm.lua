@@ -22,15 +22,16 @@ return {
         local RUST_TERMINAL_WINDOW = 1
         local PYTHON_TERMINAL_WINDOW = 2
         local IPYTHON_TERMINAL_WINDOW = 3
-        -- Save and run file
         local remaps_plugins = require("victor.hotkeys_plugins")
         local KEYS = remaps_plugins.toggleterm
+
+        -- Save and run file
         vim.keymap.set("n", KEYS.save_run_file, function()
             local main_win = vim.api.nvim_get_current_win()
             local file = vim.fn.expand("%:p")
             local filetype = vim.bo.filetype
             local toggleterm = require("toggleterm")
-            if filetype == "rust" then
+            if filetype == "rust" or filetype == "toml" then
                 local command = "cargo run"
 
                 vim.cmd("w")

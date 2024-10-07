@@ -18,7 +18,7 @@ return {
             ' \t\r\n'
         }
         -- searchs will be case sensitive
-        leap.opts.case_sensitive = true
+        leap.opts.case_sensitive = false
         leap.safe_labels = {
             "s", "f", "n", "u", "t", "m", ",", "_",
             "S", "F", "N", "L", "H", "M", "U", "G", "T", "?", "Z"

@@ -86,7 +86,7 @@ function print_python_variable()
     if filetype == "python" then
         PRINT_TEXT = 'print(f"' .. yanked_variable .. ': {' .. yanked_variable .. '}")'
     elseif filetype == "rust" then
-        PRINT_TEXT = 'println!("' .. yanked_variable .. ': {' .. yanked_variable .. '}")'
+        PRINT_TEXT = 'println!("' .. yanked_variable .. ': {}", ' .. yanked_variable .. ');'
     elseif filetype == "lua" then
         PRINT_TEXT = 'print("' .. yanked_variable .. ': {' .. yanked_variable .. '}")'
     else
@@ -97,7 +97,7 @@ function print_python_variable()
     local line = vim.api.nvim_win_get_cursor(0)[1]
     local spaces = vim.fn.indent(line)
     local write_print = string.rep(" ", spaces) .. PRINT_TEXT
-    vim.cmd("normal O")
+    vim.cmd("normal o")
     vim.api.nvim_set_current_line(write_print)
 end
 

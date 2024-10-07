@@ -131,8 +131,6 @@ local remaps_plugins =
     },
     trouble = {
         toggle = '<leader>dt',
-        next = '<leader>dn',
-        previous = '<leader>dp'
     },
     undo_tree = {
         open_tree = '<leader>u'

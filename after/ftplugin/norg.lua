@@ -8,6 +8,7 @@ vim.opt_local.foldenable = true
 vim.opt_local.conceallevel = 2
 vim.opt_local.concealcursor = "nv"
 
+vim.keymap.set({"n"}, "<leader>lf", "ggvG=<C-O>")
 -- I've disabled dead keys on terminal and reactivated them this way only for
 -- markdown and text formats
 vim.keymap.set({"i", "c"}, "~a", "ã", {buffer = true})
