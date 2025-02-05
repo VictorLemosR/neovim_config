@@ -1,12 +1,13 @@
 -- Letters used after <leader>
+-- c: copilot_chat
+-- d: trouble
+-- f: telescope
 -- g: github
 -- h: harpoon
 -- i: iron
 -- l: lsp
 -- t: nvim_tree
 -- s: surround
--- f: telescope
--- d: trouble
 -- u: undo_tree
 local remaps_plugins =
 {
@@ -126,6 +127,9 @@ local remaps_plugins =
         open_terminal = '<leader>ro', --must change on plugin file
         save_run_file = '<leader>rr',
         save_run_tests = '<leader>rt',
+        save_run_client = '<leader>rc', --useful for rust web clients
+        save_run_web_client = '<leader>rwc', --useful for rust web clients
+        save_run_web_server = '<leader>rws', --useful for rust web clients
         run_send = '<leader>rs',
         run_file = '<leader>rf',
     },

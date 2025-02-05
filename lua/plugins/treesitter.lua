@@ -1,7 +1,9 @@
 return {
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
     { 'nvim-treesitter/playground' },
-
+    build = function()
+        require("nvim-treesitter.install").update({ with_sync = true })()
+    end,
 --    config = function ()
 --        require'nvim-treesitter.configs'.setup {
 --            ensure_installed = { "python", "lua", "query", "rust", "norg" },

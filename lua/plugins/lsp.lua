@@ -27,9 +27,8 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "pyright", -- (python lsp) one of the primary mainteners of the lsp client is fan of it
-                "ruff_lsp",
+                "ruff",
                 "lua_ls", --(only lua lsp)
-                "tsserver", --(javascript lsp)
             },
             handlers = {
                 function(server_name)
@@ -42,11 +41,32 @@ return {
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup({
-                        capabilities = lsp_capabilities,
                         settings = {
                             Lua = {
                                 diagnostics = {
                                     globals = { "vim", "require" },
+                                },
+                            },
+                        },
+                    })
+                end,
+                ["rust_analyzer"] = function()
+                    require("lspconfig").rust_analyzer.setup({
+                        -- Other Configs ...
+                        settings = {
+                            ["rust-analyzer"] = {
+                                -- Other Settings ...
+                                procMacro = {
+                                    ignored = {
+                                        leptos_macro = {
+                                            -- optional: --
+                                            -- "component",
+                                            "server",
+                                        },
+                                    },
+                                },
+                                rustfmt = {
+                                    overrideCommand = { "leptosfmt", "--stdin", "--rustfmt" },
                                 },
                             },
                         },
@@ -71,8 +91,7 @@ return {
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
             }),
             sources = cmp.config.sources({
-                { name = "nvim_lsp", max_item_count = 10 },
-                { name = "neorg" },
+                { name = "nvim_lsp", max_item_count = 15 },
                 { name = "luasnip" },
                 --{ name = "path" }, --Disliked. Showed so many options, if I understood right
                 --{ name = "buffer", keyword_length = 3 }, --Disliked. Showed so many options
