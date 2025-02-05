@@ -21,6 +21,7 @@ For the below items, if you don't have admin rights, just download the zip file 
 	- To configure environment variable without admin rights, open cmd and type:
 	setx NVM_HOME "path\to\nvm"
 	setx NVM_SYMLINK "C:\Program Files\nodejs"
+		(NVM_SYMLINK has to be on program files, no matter where you installed)
 	setx PATH "%NVM_HOME%;%NVM_SYMLINK%"
 		- Careful when setting PATH this way, because you might lose old modifications to path. One way to keep old modifications:
 		  setx PATH "%PATH%;%NVM_HOME%;%NVM_SYMLINK%", but will double the core path and might go over 1000 characters
