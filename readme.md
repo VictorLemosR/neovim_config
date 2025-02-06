@@ -18,19 +18,19 @@ For the below items, if you don't have admin rights, just download the zip file 
 	- Needed for treesitter
 
 6. Install [nvm for Windows](https://github.com/coreybutler/nvm-windows) following this [guide][https://github.com/coreybutler/nvm-windows/wiki#manual-installation] then open cmd, change directory to nvm installation folder and run "nvm install latest" 
-	- To configure environment variable without admin rights, open cmd and type:
-	setx NVM_HOME "path\to\nvm"
-	setx NVM_SYMLINK "C:\Program Files\nodejs"
-		(NVM_SYMLINK has to be on program files, no matter where you installed)
+	- To configure environment variable without admin rights, open cmd and type:\
+	setx NVM_HOME "path\to\nvm"\
+	setx NVM_SYMLINK "C:\Program Files\nodejs"\
+		(NVM_SYMLINK has to be on program files, no matter where you installed, the folder doesn't even need to exist)\
 	setx PATH "%NVM_HOME%;%NVM_SYMLINK%"
-		- Careful when setting PATH this way, because you might lose old modifications to path. One way to keep old modifications:
+		- Careful when setting PATH this way, because you might lose old modifications to path. One way to keep old modifications:\
 		  setx PATH "%PATH%;%NVM_HOME%;%NVM_SYMLINK%", but will double the core path and might go over 1000 characters
 		  limitation
 	- Tips: https://cloud.google.com/nodejs/docs/setup#installing_nvm
 
 7. Add to your path nvim\bin, ripgrep folder, llvm-mingw\bin, nvm folder (which should be in %USERPROFILE%\Appdata\Roaming\nvm\{version}\)
-	- To install without admin privileges, run inside cmd: setx PATH "C:\NEW\FOLDER\TO\PATH". For example, for me:
-	setx PATH
+	- To install without admin privileges, run inside cmd: setx PATH "C:\NEW\FOLDER\TO\PATH". For example, for me:\
+	setx PATH\
 	"%NVM_HOME%;%NVM_SYMLINK%;%USERPROFILE%\victor\neovim\bin;%USERPROFILE%\victor\ripgrep;%USERPROFILE%\victor\llvm-mingw-20240619-ucrt-x86_64\bin;%USERPROFILE%\appdata\roaming\nvm\v22.6.0;%USERPROFILE%\victor\lua\5.1;"
 		- You need to put all the extra variables for path, hence NVM_HOME and NVM_SYMLINK again. Also included future
 		  paths here, which is not a problem if you decide not to install
@@ -48,11 +48,11 @@ For the below items, if you don't have admin rights, just download the zip file 
 
 11. For python, install pynvim: pip install pynvim
 
-12. For rust 
-	12.1) Installation: https://www.rust-lang.org/tools/install
-	12.2) Input on cmd:
-	rustup component add rust-src
-	rustup component add rust-analyzer
+12. For rust \
+	- Installation: https://www.rust-lang.org/tools/install
+	- Input on cmd:
+		- rustup component add rust-src
+		- rustup component add rust-analyzer
 
 13. Manually, type into neovim ":Mason" and install linters and formatters. For current config, you must install
 	"black", "isort", "prettier", "stylua". If new ones are added, configure on /lua/plugins/none_ls.lua
