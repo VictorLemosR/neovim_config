@@ -70,12 +70,11 @@ local KEYS = remaps.oil
 
 local function open_folder(path)
     local file_type = vim.bo.filetype
-    if file_type == "oil" then
-        vim.cmd(":edit " .. path)
-    else
+    if file_type ~= "oil" then
         vim.cmd("vsplit")
-        vim.cmd(":edit " .. path)
     end
+        vim.cmd(":edit " .. path)
+        vim.cmd("cd " .. path)
 end
 
 vim.keymap.set("n", KEYS.open_on_codes, function()
