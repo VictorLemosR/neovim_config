@@ -36,7 +36,7 @@ return {
                 ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
                 ["gs"] = { "actions.change_sort", mode = "n" },
                 ["gx"] = "actions.open_external",
-                ["g."] = { "actions.toggle_hidden", mode = "n" },
+                ["<leader>o."] = { "actions.toggle_hidden", mode = "n" },
                 ["g\\"] = { "actions.toggle_trash", mode = "n" },
             },
             -- Set to false to disable all of the above keymaps
@@ -46,7 +46,11 @@ return {
                 show_hidden = false,
                 -- This function defines what is considered a "hidden" file
                 is_hidden_file = function(name, bufnr)
-                    local m = name:match("^%.|^%__")
+                    if name == ".." then
+                        return false
+                    end
+
+                    local m = name:match("^%.") or name:match("^_")
                     return m ~= nil
                 end,
                 -- Sort file and directory names case insensitive
