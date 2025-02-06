@@ -6,7 +6,7 @@ return {
     end,
 --    config = function ()
 --        require'nvim-treesitter.configs'.setup {
---            ensure_installed = { "python", "lua", "query", "rust", "norg" },
+--            ensure_installed = { "python", "lua", "query", "rust"},
 --
 --            -- Install parsers synchronously (only applied to `ensure_installed`)
 --            sync_install = true,

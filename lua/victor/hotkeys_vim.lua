@@ -66,13 +66,55 @@ local vim_folder = paths.vim_folder
 local public_codes_folder = paths.public_codes_folder
 
 local remaps = require("victor.hotkeys_plugins")
-local KEYS = remaps.nvim_tree
+local KEYS = remaps.oil
 
-vim.keymap.set("n", KEYS.open_on_codes, "<C-w><C-v>:edit " .. codes_folder .. "<CR>")
-vim.keymap.set("n", KEYS.open_on_notes, "<C-w><C-v>:edit " .. notes_folder .. "<CR>")
-vim.keymap.set("n", KEYS.open_on_vim, "<C-w><C-v>:edit " .. vim_folder .. "<CR>")
-vim.keymap.set("n", KEYS.open_on_public_codes, "<C-w><C-v>:edit " .. public_codes_folder .. "<CR>")
-vim.keymap.set("n", KEYS.root_to_directory, ":cd %:h<CR>", { silent = true })
+local function open_folder(path)
+    local file_type = vim.bo.filetype
+    if file_type == "oil" then
+        vim.cmd(":edit " .. path)
+    else
+        vim.cmd("vsplit")
+        vim.cmd(":edit " .. path)
+    end
+end
+
+vim.keymap.set("n", KEYS.open_on_codes, function()
+    open_folder(codes_folder)
+end)
+vim.keymap.set("n", KEYS.open_on_notes, function()
+    open_folder(notes_folder)
+end)
+vim.keymap.set("n", KEYS.open_on_vim, function()
+    open_folder(vim_folder)
+end)
+vim.keymap.set("n", KEYS.open_on_public_codes, function()
+    open_folder(public_codes_folder)
+end)
+vim.keymap.set("n", KEYS.open_folder, function()
+    if vim.bo.filetype == "oil" then
+        return
+    else
+        vim.cmd("vsplit")
+        vim.cmd(":edit %:h")
+    end
+end, { silent = true })
+vim.keymap.set("n", KEYS.root_to_directory, function()
+    if vim.bo.filetype == "oil" then
+        local path = require("oil").get_current_dir()
+        vim.cmd("cd " .. path)
+    else
+        vim.cmd(":cd %:h")
+    end
+end, { silent = true })
+vim.keymap.set("n", KEYS.open_on_windows, function()
+    if vim.bo.filetype == "oil" then
+        local path = require("oil").get_current_dir()
+        os.execute("start " .. path)
+    else
+        local current_file_dir = vim.fn.expand("%:p:h")
+        os.execute("start " .. current_file_dir)
+    end
+end, { silent = true })
 
 --Append without moving cursor
 vim.keymap.set("n", "J", "mzJ`z")
@@ -82,4 +124,4 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Deactivates "Q", which enters in an horrible mode
 vim.keymap.set("n", "Q", "<nop>")
 -- Go to normal mode from terminal mode
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })

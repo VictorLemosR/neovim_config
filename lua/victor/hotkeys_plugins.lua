@@ -6,7 +6,8 @@
 -- h: harpoon
 -- i: iron
 -- l: lsp
--- t: nvim_tree
+-- o: oil
+-- t: toggleterm
 -- s: surround
 -- u: undo_tree
 local remaps_plugins =
@@ -60,23 +61,6 @@ local remaps_plugins =
         next = '<leader><Right>',
         prev = '<leader><Left>',
     },
-    iron = {
-        send_motion = "<leader>is",
-        visual_send = "<leader>is",
-        send_file = "<leader>if",
-        send_line = "<leader>il",
---        send_until_cursor = "<leader>ic",
---        send_mark = "", -- didn't enjoy (or understand) the mark advantage
---        mark_motion = "", -- didn't enjoy (or understand) the mark advantage
---        mark_visual = "", -- didn't enjoy (or understand) the mark advantage
---        remove_mark = "", -- didn't enjoy (or understand) the mark advantage
-        cr = "<leader>ii",
-        interrupt = "<leader>i<leader>",
-        exit = "<leader>ie",
-        clear = "<leader>ic",
-        open_iron_repl = "<leader>io",
-        restart_iron_repl = "<leader>ir",
-    },
     leap = {
         -- s - search forward
         -- S - search backward
@@ -95,17 +79,14 @@ local remaps_plugins =
        signature_help = '<leader>lh',
        format = '<leader>lf'
     },
-    nvim_tree = {
-        open_tree = '<leader>tt',
-        open_on_notes = '<leader>tn',
-        open_on_codes = '<leader>tc',
-        open_on_vim = '<leader>tv',
-        open_on_public_codes = '<leader>tp',
-        root_to_directory = '<leader>tr',
-        -- when tree is open
-        root_to_node = 'tr',
-        root_to_parent = 'tp',
-        -- s to open file in windows
+    oil = {
+        open_folder = '<leader>oo',
+        open_on_notes = '<leader>on',
+        open_on_codes = '<leader>oc',
+        open_on_vim = '<leader>ov',
+        open_on_public_codes = '<leader>op',
+        root_to_directory = '<leader>or',
+        open_on_windows = '<leader>ow',
     },
     surround = {
         normal = '<leader>si', -- i for insert
@@ -124,14 +105,14 @@ local remaps_plugins =
         word = '<leader>fw',
     },
     toggleterm = {
-        open_terminal = '<leader>ro', --must change on plugin file
-        save_run_file = '<leader>rr',
-        save_run_tests = '<leader>rt',
-        save_run_client = '<leader>rc', --useful for rust web clients
-        save_run_web_client = '<leader>rwc', --useful for rust web clients
-        save_run_web_server = '<leader>rws', --useful for rust web clients
-        run_send = '<leader>rs',
-        run_file = '<leader>rf',
+        open_terminal = '<leader>to', --must change on plugin file
+        save_run_file = '<leader>tr',
+        save_run_tests = '<leader>tt',
+        save_run_client = '<leader>tc', --useful for rust web clients
+        save_run_web_client = '<leader>twc', --useful for rust web clients
+        save_run_web_server = '<leader>tws', --useful for rust web clients
+        run_send = '<leader>ts',
+        run_file = '<leader>tf',
     },
     trouble = {
         toggle = '<leader>dt',

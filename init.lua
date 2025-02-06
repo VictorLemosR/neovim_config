@@ -43,7 +43,7 @@ require("lazy").setup("plugins")
 --
 --
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "python", "lua", "query", "rust", "norg" },
+    ensure_installed = { "python", "lua", "query", "rust"},
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = true,
@@ -51,6 +51,7 @@ require("nvim-treesitter.configs").setup({
     -- Automatically install missing parsers when entering buffer
     -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
     auto_install = true,
+    ignore_install = { "norg" },
 
     highlight = {
         enable = true,
