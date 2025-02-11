@@ -1,4 +1,5 @@
 require("victor.vim_configuration")
 require("victor.hotkeys_vim")
 require("victor.hotkeys_plugins")
-require("victor.vim_functions")
+require("victor.functions_vim")
+require("victor.functions_plugins")

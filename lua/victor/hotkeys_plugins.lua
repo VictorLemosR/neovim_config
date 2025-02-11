@@ -106,13 +106,13 @@ local remaps_plugins =
     },
     toggleterm = {
         open_terminal = '<leader>to', --must change on plugin file
-        save_run_file = '<leader>tr',
-        save_run_tests = '<leader>tt',
-        save_run_client = '<leader>tc', --useful for rust web clients
-        save_run_web_client = '<leader>twc', --useful for rust web clients
-        save_run_web_server = '<leader>tws', --useful for rust web clients
-        run_send = '<leader>ts',
-        run_file = '<leader>tf',
+        run_file = '<leader>tr',
+        run_tests = '<leader>tt',
+        https_client = '<leader>tc', --useful for rust web clients
+        --save_run_web_client = '<leader>tw', --useful for rust web clients
+        web_server = '<leader>tw', --useful for rust web clients
+        send_lines_without_saving = '<leader>ts',
+        send_file_without_saving = '<leader>tf',
     },
     trouble = {
         toggle = '<leader>dt',
