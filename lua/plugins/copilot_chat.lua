@@ -35,6 +35,8 @@ return {
 	config = function(_, opts)
 		local chat = require("CopilotChat")
 		local select = require("CopilotChat.select")
+        vim.keymap.set("n", KEYS.open, function() chat.open() end)
+        vim.keymap.set("n", KEYS.reset, function() chat.reset() end)
 		-- Use unnamed register for the selection
 		opts.selection = select.unnamed
 

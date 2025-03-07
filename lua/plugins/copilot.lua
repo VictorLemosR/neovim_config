@@ -7,7 +7,7 @@ return {
         local KEYS = remaps_plugins.copilot_completions
 		require("copilot").setup({
 			suggestion = {
-                auto_trigger = true,
+                auto_trigger = false,
 				keymap = {
 					accept = KEYS.accept,
 					accept_word = false,

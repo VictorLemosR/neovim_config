@@ -87,18 +87,18 @@ function insert_print()
 		local function_name = obtain_function_name(file_type)
 		PRINT_TEXT = "print('->> Debugging "
 			.. print_counter
-			.. ": "
+			.. " <<- function: "
 			.. function_name
-			.. " function; "
+			.. "; file: "
 			.. filename
 			.. "')"
 	elseif file_type == "rust" then
 		local function_name = obtain_function_name(file_type)
 		PRINT_TEXT = 'println!("->> Debugging '
 			.. print_counter
-			.. ": "
+			.. " <<- function: "
 			.. function_name
-			.. " function; "
+			.. "; file:"
 			.. filename
 			.. '");'
 	else
@@ -136,9 +136,9 @@ function print_variable()
 		local function_name = obtain_function_name(file_type)
 		PRINT_TEXT = 'print(f"->> '
 			.. yanked_variable
-			.. "; "
+			.. " <<- function: "
 			.. function_name
-			.. " function; "
+			.. "; file: "
 			.. filename
 			.. "\\n{"
 			.. yanked_variable
@@ -147,9 +147,9 @@ function print_variable()
 		local function_name = obtain_function_name(file_type)
 		PRINT_TEXT = 'println!("->> '
 			.. yanked_variable
-			.. "; "
+			.. " <<- function: "
 			.. function_name
-			.. " function; "
+			.. "; file: "
 			.. filename
 			.. '\\n{:?}", '
 			.. yanked_variable
@@ -158,7 +158,7 @@ function print_variable()
 		local function_name = obtain_function_name(file_type)
 		PRINT_TEXT = 'print("->> '
 			.. yanked_variable
-			.. "; "
+			.. " <<- file: "
 			.. filename
 			.. "\\n \" .. "
 			.. yanked_variable

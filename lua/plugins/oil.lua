@@ -26,7 +26,6 @@ return {
                 ["<CR>"] = "actions.select",
                 ["v"] = { "actions.select", opts = { vertical = true } },
                 [""] = false,
-                [""] = false,
                 ["<C-p>"] = "actions.preview",
                 ["<C-c>"] = { "actions.close", mode = "n" },
                 ["<C-l>"] = "actions.refresh",

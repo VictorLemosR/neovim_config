@@ -3,7 +3,7 @@ local paths = require("victor.paths")
 local codes_folder = paths.codes_folder
 local notes_folder = paths.notes_folder
 local vim_folder = paths.vim_folder
-local public_codes_folder = paths.public_codes_folder
+local personal_codes_folder = paths.personal_codes_folder
 
 local remaps = require("victor.hotkeys_plugins")
 local KEYS = remaps.oil
@@ -26,8 +26,8 @@ end)
 vim.keymap.set("n", KEYS.open_on_vim, function()
     open_folder(vim_folder)
 end)
-vim.keymap.set("n", KEYS.open_on_public_codes, function()
-    open_folder(public_codes_folder)
+vim.keymap.set("n", KEYS.open_on_personal_codes, function()
+    open_folder(personal_codes_folder)
 end)
 
 vim.keymap.set("n", KEYS.open_folder, function()

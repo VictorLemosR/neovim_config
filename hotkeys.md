@@ -52,6 +52,8 @@ https://vim.rtorr.com/
 -- zC: close all folds under the cursor
 - zR: open all folds
 - zM: close all folds
+- gu: convert all leters to lowercase
+	- gU: converte all leters to uppercase
 
 
 #### Deletion mode

@@ -13,14 +13,17 @@
 local remaps_plugins =
 {
     copilot_chat = {
+        open = "<leader>co",
+        reset = "<leader>cr",
+
         help_actions = "<leader>ch",
         prompt_actions = "<leader>cp",
         explain = "<leader>ce",
         generate_tests = "<leader>ct",
-        review_code = "<leader>cr",
+        review_code = "<leader>cR2",
+        open_vertical = "<leader>cv",
         refactor_code = "<leader>cR",
         better_namings = "<leader>cn",
-        open_vertical = "<leader>cv",
         inline_chat = "<leader>cc",
         ask = "<leader>ca",
         commit_message = "<leader>cm",
@@ -84,7 +87,7 @@ local remaps_plugins =
         open_on_notes = '<leader>on',
         open_on_codes = '<leader>oc',
         open_on_vim = '<leader>ov',
-        open_on_public_codes = '<leader>op',
+        open_on_personal_codes = '<leader>op',
         root_to_directory = '<leader>or',
         open_on_windows = '<leader>ow',
     },
