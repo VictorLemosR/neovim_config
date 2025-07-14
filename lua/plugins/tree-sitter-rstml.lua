@@ -1,4 +1,5 @@
 return {
+    --Parsing for leptos
     "rayliwell/tree-sitter-rstml",
     dependencies = { "nvim-treesitter" },
     build = ":TSUpdate",

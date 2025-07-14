@@ -1,10 +1,9 @@
 -- Letters used after <leader>
--- c: copilot_chat
+-- c: codecompanion
 -- d: trouble
 -- f: telescope
 -- g: github
 -- h: harpoon
--- i: iron
 -- l: lsp
 -- o: oil
 -- t: toggleterm
@@ -12,31 +11,16 @@
 -- u: undo_tree
 local remaps_plugins =
 {
-    copilot_chat = {
-        open = "<leader>co",
-        reset = "<leader>cr",
+    codecompanion = {
+        open_chat = "<leader>co",
 
-        help_actions = "<leader>ch",
-        prompt_actions = "<leader>cp",
-        explain = "<leader>ce",
-        generate_tests = "<leader>ct",
-        review_code = "<leader>cR2",
-        open_vertical = "<leader>cv",
-        refactor_code = "<leader>cR",
-        better_namings = "<leader>cn",
-        inline_chat = "<leader>cc",
-        ask = "<leader>ca",
-        commit_message = "<leader>cm",
-        quick_chat = "<leader>cq",
-        debug = "<leader>cd",
-        diagnostics = "<leader>cd",
     },
-    copilot_completions = {
-        accept = "<C-c><C-a>",
-        next = "<C-c><C-n>",
-        prev = "<C-c><C-p>",
-        dismiss = "<C-c><C-c>",
-    },
+    --copilot_completions = {
+    --    accept = "<C-c><C-a>",
+    --    next = "<C-c><C-n>",
+    --    prev = "<C-c><C-p>",
+    --    dismiss = "<C-c><C-c>",
+    --},
     debugger  =  {
         run  = '<F5>',
         toggle_breakpoint = '<F9>',

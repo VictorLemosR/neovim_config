@@ -16,10 +16,10 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- Paste from the system
+-- Paste from the system. With my configs, the alt are ignored, because wezterm does it
+vim.keymap.set({ "i", "c", "t" }, "<C-v>", "<C-r><C-o>+")
+vim.keymap.set({ "i", "c", "t" }, "<A-v>", "<C-r><C-o>+")
 vim.keymap.set({ "n", "v" }, "<A-v>", [["+gp]])
-vim.keymap.set({ "i", "c", "t" }, "<A-v>", "<C-r>+")
-vim.keymap.set({ "i", "c", "t" }, "<C-v>", "<C-r>+")
 
 -- Delete without losing copied text in buffer
 vim.keymap.set({ "v" }, "<leader>dd", [["_d]])

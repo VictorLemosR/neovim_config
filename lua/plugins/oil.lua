@@ -28,7 +28,7 @@ return {
                 [""] = false,
                 ["<C-p>"] = "actions.preview",
                 ["<C-c>"] = { "actions.close", mode = "n" },
-                ["<C-l>"] = "actions.refresh",
+                ["<C-r>"] = "actions.refresh",
                 ["-"] = { "actions.parent", mode = "n" },
                 ["_"] = { "actions.open_cwd", mode = "n" },
                 ["`"] = { "actions.cd", mode = "n" },

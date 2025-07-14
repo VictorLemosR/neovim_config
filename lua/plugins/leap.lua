@@ -4,7 +4,7 @@ return {
     config = function ()
         local leap = require('leap')
 
-        leap.add_default_mappings()
+        leap.set_default_mappings()
         leap.init_highlight(true)
         leap.opts.highlight_unlabeled_phase_one_targets = true
         -- Match accented characters as non-accented

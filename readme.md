@@ -51,7 +51,9 @@ For the below items, if you don't have admin rights, just download the zip file 
 
 11. To use copilotchat, define a home variable in cmd: setx HOME "%USERPROFILE%"
 
-12. For python, install pynvim: pip install pynvim
+12. For python, install pynvim and pyright:\
+pip install pynvim\
+pip install pyright
 
 13. For rust:
 	- Installation: https://www.rust-lang.org/tools/install

@@ -24,21 +24,6 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 	end,
 })
 
--- Function to look for the error line in repl and redirect to the code expecting to be one left window
-function get_line_text()
-	local line = vim.api.nvim_get_current_line()
-	local non_space_code = ""
-	for i = 1, string.len(line), 1 do
-		if string.sub(line, i, i):match("[a-zA-Z]") then
-			non_space_code = string.sub(line, i, -1)
-			break
-		end
-	end
-
-	vim.cmd("wincmd h")
-	vim.fn.search(non_space_code)
-end
-
 function obtain_function_name(file_type)
 	local cursor_position = vim.api.nvim_win_get_cursor(0)
 	local line_number = cursor_position[1]
@@ -151,9 +136,7 @@ function print_variable()
 			.. function_name
 			.. "; file: "
 			.. filename
-			.. '\\n{:?}", '
-			.. yanked_variable
-			.. ");"
+			.. '\\n{' .. yanked_variable .. ':?}");' 
 	elseif file_type == "lua" then
 		local function_name = obtain_function_name(file_type)
 		PRINT_TEXT = 'print("->> '
@@ -177,7 +160,6 @@ end
 
 vim.keymap.set({ "n", "i" }, "<F1>", "<cmd>lua print_variable()<CR>")
 vim.keymap.set({ "n", "i" }, "<F2>", "<cmd>lua insert_print()<CR>")
-vim.keymap.set("n", "<F3>", "<cmd> lua get_line_text()<cr>")
 
 --Adicionar nome do arquivo. Linha. Nome da fun'c~ao
 

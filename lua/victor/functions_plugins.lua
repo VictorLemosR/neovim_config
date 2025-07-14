@@ -44,9 +44,12 @@ vim.keymap.set("n", KEYS.root_to_directory, function()
         local path = require("oil").get_current_dir()
         vim.cmd("cd " .. path)
         print("Changed root to " .. path)
+        vim.fn.setreg("+", path) -- Copy path to clipboard
     else
         vim.cmd(":cd %:h")
         vim.cmd(":echo expand('%:p:h')")
+        local path = vim.fn.expand('%:p:h')
+        vim.fn.setreg("+", path) -- Copy path to clipboard
     end
 end, { silent = true })
 
@@ -120,7 +123,7 @@ local function terminal_functions(mode)
     local main_win = vim.api.nvim_get_current_win()
     local toggleterm = require("toggleterm")
     local filetype = vim.bo.filetype
-    if filetype == "rust" then
+    if filetype == "rust" or filetype == "toml" then
         vim.cmd("w")
         local command = ""
         if mode == terminal.run_file then
@@ -128,7 +131,6 @@ local function terminal_functions(mode)
         elseif mode == terminal.run_tests then
             command = "cargo llvm-cov nextest --show-missing-lines"
         elseif mode == terminal.web_server then
-            print('->> Debugging 2: Not inside a function function; functions_plugins.lua')
             command = "cargo leptos watch"
         elseif mode == terminal.https_client then
             command = "cargo run --bin client_mock"
@@ -142,7 +144,6 @@ local function terminal_functions(mode)
             vim.notify("Command not supported in " .. filetype, vim.log.levels.ERROR)
             return
         end
-        print('->> Debugging 1: Not inside a function function; functions_plugins.lua')
         local change_directory = "cd " .. trim_deepest_src(vim.fn.expand("%:p:h"))
 
         toggleterm.exec(change_directory, RUST_TERMINAL_WINDOW)

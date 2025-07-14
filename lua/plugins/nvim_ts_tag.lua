@@ -1,3 +1,4 @@
+--Autoclose and rename tags in html (works for leptos and .ts)
 return {
     "windwp/nvim-ts-autotag",
     config = function()
