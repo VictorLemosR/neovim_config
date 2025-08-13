@@ -22,7 +22,7 @@ For the below items, if you don't have admin rights, just download the zip file 
 	- Windows -> 64-bit git for windows setup
 		- You can accept all default choices
 
-7. Install [nvm for Windows](https://github.com/coreybutler/nvm-windows) following this [guide][https://github.com/coreybutler/nvm-windows/wiki#manual-installation] then open cmd, change directory to nvm installation folder and run "nvm install latest" 
+7. Install [nvm for Windows](https://github.com/coreybutler/nvm-windows) following this [guide](https://github.com/coreybutler/nvm-windows/wiki#manual-installation) then open cmd, change directory to nvm installation folder and run "nvm install latest" 
 	- To configure environment variable without admin rights, open cmd and type:\
 	setx NVM_HOME "path\to\nvm"\
 	setx NVM_SYMLINK "C:\Program Files\nodejs"\
@@ -33,7 +33,7 @@ For the below items, if you don't have admin rights, just download the zip file 
 		  limitation
 	- Tips: https://cloud.google.com/nodejs/docs/setup#installing_nvm
 
-8. Add to your path nvim\bin, ripgrep folder, llvm-mingw\bin, nvm folder (which should be in %USERPROFILE%\Appdata\Roaming\nvm\{version}\)
+8. Add to your path nvim\bin, ripgrep folder, llvm-mingw\bin, nvm folder (which should be in %USERPROFILE%\Appdata\Roaming\nvm\\{version}\)
 	- To install without admin privileges, run inside cmd: setx PATH "C:\NEW\FOLDER\TO\PATH". For example, for me:\
 	setx PATH\
 	"%NVM_HOME%;%NVM_SYMLINK%;%USERPROFILE%\victor\neovim\bin;%USERPROFILE%\victor\ripgrep;%USERPROFILE%\victor\llvm-mingw-20240619-ucrt-x86_64\bin;%USERPROFILE%\appdata\roaming\nvm\v22.6.0;%USERPROFILE%\victor\lua\5.1;"
@@ -66,13 +66,13 @@ pip install pyright
 
 15. Adjust your paths used by neovim in "/lua/victor/paths.lua"
 
-16. Adjust hotkeys used for plugins in "lua/victor/hotkeys_plugins.lua"
+16. For personal preference, adjust hotkeys used for plugins in "lua/victor/hotkeys_plugins.lua"
 
-17. For portuguese people, download pt-utf8 from [vim site](https://ftp.nluug.nl/pub/vim/runtime/spell/) and add it to neovim installation folder: nvim\share\nvim\runtime\spell
-
-18. To be able to run rust tests with <space>rt:
+17. To be able to run rust tests with <space>rt:
 	- cargo install cargo-nextest --locked
 	- cargo +stable install cargo-llvm-cov --locked
+
+18. To use github features inside neovim, install its [cli](https://cli.github.com/)
 
 # Update
 1. To update neovim configuration to my latest, just repeat step 8

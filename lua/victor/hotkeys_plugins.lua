@@ -67,13 +67,14 @@ local remaps_plugins =
        format = '<leader>lf'
     },
     oil = {
-        open_folder = '<leader>oo',
+        open_folder = '<leader>oo', --These are on victor/hotkeys_plugins
         open_on_notes = '<leader>on',
         open_on_codes = '<leader>oc',
         open_on_vim = '<leader>ov',
         open_on_personal_codes = '<leader>op',
         root_to_directory = '<leader>or',
         open_on_windows = '<leader>ow',
+        toggle_hidden = '<leader>o.', --This is in oil file
     },
     surround = {
         normal = '<leader>si', -- i for insert

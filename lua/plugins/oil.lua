@@ -9,6 +9,8 @@ return {
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
     config = function()
+        local remaps_plugins = require("victor.hotkeys_plugins")
+        local KEYS = remaps_plugins.oil
 
         --vim.keymap.set("n", KEYS.root_to_parent, api.tree.change_root_to_parent, opts("Up"))
         --vim.keymap.set("n", KEYS.root_to_node, api.tree.change_root_to_node, opts("CD"))
@@ -24,7 +26,7 @@ return {
             keymaps = {
                 ["g?"] = { "actions.show_help", mode = "n" },
                 ["<CR>"] = "actions.select",
-                ["v"] = { "actions.select", opts = { vertical = true } },
+                ["__"] = { "actions.select", opts = { vertical = true } },
                 [""] = false,
                 ["<C-p>"] = "actions.preview",
                 ["<C-c>"] = { "actions.close", mode = "n" },
@@ -35,7 +37,7 @@ return {
                 ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
                 ["gs"] = { "actions.change_sort", mode = "n" },
                 ["gx"] = "actions.open_external",
-                ["<leader>o."] = { "actions.toggle_hidden", mode = "n" },
+                [KEYS.toggle_hidden] = { "actions.toggle_hidden", mode = "n" },
                 ["g\\"] = { "actions.toggle_trash", mode = "n" },
             },
             -- Set to false to disable all of the above keymaps
