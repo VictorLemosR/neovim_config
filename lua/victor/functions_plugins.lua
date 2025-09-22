@@ -235,20 +235,20 @@ local function terminal_functions(mode)
             --    vim.fn.chansend(job_id, enter_in_string)
             --end, 150)
         elseif mode == terminal.send_file_without_saving then
+            local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+            vim.fn.setreg("+", lines)
+            
             local ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
             if ipython_terminal == nil then
                 toggleterm.exec("ipython --no-autoindent", IPYTHON_TERMINAL_WINDOW)
                 ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
             end
             ipython_terminal:focus()
-
-            local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-            vim.fn.setreg("+", lines)
+            local job_id = ipython_terminal.job_id
             vim.api.nvim_chan_send(job_id, "%paste\n\r")
 
             -- Old way
             --lines = remove_empty_lines(lines)
-            --local job_id = ipython_terminal.job_id
             --local enter_in_string = string.char(13)
             --vim.fn.chansend(job_id, lines)
             --vim.api.nvim_chan_send(job_id, table.concat(lines, "\r"))
