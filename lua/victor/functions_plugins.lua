@@ -9,10 +9,10 @@ local remaps = require("victor.hotkeys_plugins")
 local KEYS = remaps.oil
 
 local function open_folder(path)
-    local file_type = vim.bo.filetype
-    if file_type ~= "oil" then
-        vim.cmd("vsplit")
-    end
+    --local file_type = vim.bo.filetype
+    --if file_type ~= "oil" then
+    --    vim.cmd("vsplit")
+    --end
     vim.cmd(":edit " .. path)
     vim.cmd("cd " .. path)
 end
@@ -34,7 +34,7 @@ vim.keymap.set("n", KEYS.open_folder, function()
     if vim.bo.filetype == "oil" then
         return
     else
-        vim.cmd("vsplit")
+        --vim.cmd("vsplit")
         vim.cmd(":edit %:p:h")
     end
 end, { silent = true })
@@ -48,7 +48,7 @@ vim.keymap.set("n", KEYS.root_to_directory, function()
     else
         vim.cmd(":cd %:h")
         vim.cmd(":echo expand('%:p:h')")
-        local path = vim.fn.expand('%:p:h')
+        local path = vim.fn.expand("%:p:h")
         vim.fn.setreg("+", path) -- Copy path to clipboard
     end
 end, { silent = true })
@@ -99,15 +99,20 @@ local function trim_deepest_src(path)
 end
 
 local function remove_empty_lines(lines)
-    local newlines = {}
+    --local newlines = {}
+    local text = ""
 
     for _, line in pairs(lines) do
-        if string.len(line:gsub("%s", "")) > 0 then
-            table.insert(newlines, line)
+        if string.len(line:gsub("[ \t]", "")) > 0 then
+            text = text .. "\r" .. line
+            --table.insert(newlines, line)
         end
     end
 
-    return newlines
+    --return newlines
+    -- add a new line to run the code
+    text = text .. "\r\n"
+    return text
 end
 
 local terminal = {
@@ -157,47 +162,97 @@ local function terminal_functions(mode)
             toggleterm.exec(change_directory, PYTHON_TERMINAL_WINDOW)
             toggleterm.exec("cls\n\n&" .. command, PYTHON_TERMINAL_WINDOW)
         elseif mode == terminal.send_lines_without_saving then
-            local ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
-            if ipython_terminal == nil then
-                toggleterm.exec("ipython --no-autoindent", IPYTHON_TERMINAL_WINDOW)
-                ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
-            end
 
             local VISUAL_LINE_MODE = "V"
             local NORMAL_MODE = "n"
             local mode_vim = vim.fn.mode()
+
+            local lines = ""
             if mode_vim == VISUAL_LINE_MODE then
                 print("Visual line mode")
-                toggleterm.send_lines_to_terminal("visual_lines", false, { args = IPYTHON_TERMINAL_WINDOW })
+                -- HACK Break out of visual mode
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", false, true, true), "nx", false)
+
+                local start_line, start_col
+                local end_line, end_col
+
+                start_line, start_col = unpack(vim.fn.getpos("'<"), 2, 3)
+                end_line, end_col = unpack(vim.fn.getpos("'>"), 2, 3)
+
+                if end_line < start_line or (end_line == start_line and end_col < start_col) then
+                    end_line, start_line = start_line, end_line
+                    end_col, start_col = start_col, end_col
+                end
+
+                lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, 0)
+
+                --old way
+                --toggleterm.send_lines_to_terminal("visual_lines", false, { args = IPYTHON_TERMINAL_WINDOW })
             elseif mode_vim == NORMAL_MODE then
                 print("Normal mode")
-                toggleterm.send_lines_to_terminal("single_line", false, { args = IPYTHON_TERMINAL_WINDOW })
+                local line_number = vim.api.nvim_win_get_cursor(0)[1] - 1
+                lines = vim.api.nvim_buf_get_lines(0, line_number, line_number + 1, 0)[1]
+
+                --old way
+                --toggleterm.send_lines_to_terminal("single_line", false, { args = IPYTHON_TERMINAL_WINDOW })
             else
                 print("Visual selection mode")
-                toggleterm.send_lines_to_terminal("visual_selection", false, { args = IPYTHON_TERMINAL_WINDOW })
+                -- HACK Break out of visual mode
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", false, true, true), "nx", false)
+                local b_line, b_col
+                local e_line, e_col
+
+                local mode = vim.fn.visualmode()
+
+                b_line, b_col = unpack(vim.fn.getpos("'<"), 2, 3)
+                e_line, e_col = unpack(vim.fn.getpos("'>"), 2, 3)
+
+                if e_line < b_line or (e_line == b_line and e_col < b_col) then
+                    e_line, b_line = b_line, e_line
+                    e_col, b_col = b_col, e_col
+                end
+
+                lines = vim.api.nvim_buf_get_lines(0, b_line - 1, e_line, 0)
+
+                --old way
+                --toggleterm.send_lines_to_terminal("visual_selection", false, { args = IPYTHON_TERMINAL_WINDOW })
             end
-            ipython_terminal:focus()
+            vim.fn.setreg("+", lines)
+            local ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
+            if ipython_terminal == nil then
+                toggleterm.exec("ipython --no-autoindent", IPYTHON_TERMINAL_WINDOW)
+                ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
+            end
             local job_id = ipython_terminal.job_id
-            local enter_in_string = string.char(13)
-            vim.defer_fn(function()
-                vim.fn.chansend(job_id, enter_in_string)
-            end, 150)
+
+            ipython_terminal:focus()
+            vim.api.nvim_chan_send(job_id, "%paste\n\r")
+            
+            -- old way
+            -- Send enter to execute the code
+            --local enter_in_string = string.char(13)
+            --vim.defer_fn(function()
+            --    vim.fn.chansend(job_id, enter_in_string)
+            --end, 150)
         elseif mode == terminal.send_file_without_saving then
-            local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-            lines = remove_empty_lines(lines)
             local ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
             if ipython_terminal == nil then
                 toggleterm.exec("ipython --no-autoindent", IPYTHON_TERMINAL_WINDOW)
                 ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
             end
             ipython_terminal:focus()
-            local job_id = ipython_terminal.job_id
-            local enter_in_string = string.char(13)
+
+            local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+            vim.fn.setreg("+", lines)
+            vim.api.nvim_chan_send(job_id, "%paste\n\r")
+
+            -- Old way
+            --lines = remove_empty_lines(lines)
+            --local job_id = ipython_terminal.job_id
+            --local enter_in_string = string.char(13)
             --vim.fn.chansend(job_id, lines)
-            vim.api.nvim_chan_send(job_id, table.concat(lines, "\r"))
-            vim.defer_fn(function()
-                vim.fn.chansend(job_id, enter_in_string)
-            end, 2000)
+            --vim.api.nvim_chan_send(job_id, table.concat(lines, "\r"))
+            --vim.api.nvim_chan_send(job_id, lines)
         else
             vim.notify("Command not supported in " .. filetype, vim.log.levels.ERROR)
             return
@@ -207,7 +262,6 @@ local function terminal_functions(mode)
         vim.notify("Command not supported in " .. filetype, vim.log.levels.ERROR)
     end
 end
-
 
 vim.keymap.set("n", KEYS.run_file, function()
     terminal_functions(terminal.run_file)
@@ -242,4 +296,3 @@ vim.keymap.set("n", KEYS.open_terminal, function()
         vim.cmd(":ToggleTermToggleAll")
     end
 end, { desc = "Open all terminals or a new one" })
-
