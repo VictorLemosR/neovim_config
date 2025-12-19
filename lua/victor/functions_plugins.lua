@@ -1,3 +1,4 @@
+---------------
 --Oil
 local paths = require("victor.paths")
 local codes_folder = paths.codes_folder
@@ -63,6 +64,7 @@ vim.keymap.set("n", KEYS.open_on_windows, function()
     end
 end, { silent = true })
 
+--------------------
 -- ToggleTerm
 local remaps_plugins = require("victor.hotkeys_plugins")
 KEYS = remaps_plugins.toggleterm
@@ -162,7 +164,6 @@ local function terminal_functions(mode)
             toggleterm.exec(change_directory, PYTHON_TERMINAL_WINDOW)
             toggleterm.exec("cls\n\n&" .. command, PYTHON_TERMINAL_WINDOW)
         elseif mode == terminal.send_lines_without_saving then
-
             local VISUAL_LINE_MODE = "V"
             local NORMAL_MODE = "n"
             local mode_vim = vim.fn.mode()
@@ -227,7 +228,7 @@ local function terminal_functions(mode)
 
             ipython_terminal:focus()
             vim.api.nvim_chan_send(job_id, "%paste\n\r")
-            
+
             -- old way
             -- Send enter to execute the code
             --local enter_in_string = string.char(13)
@@ -237,7 +238,7 @@ local function terminal_functions(mode)
         elseif mode == terminal.send_file_without_saving then
             local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
             vim.fn.setreg("+", lines)
-            
+
             local ipython_terminal = require("toggleterm.terminal").get(IPYTHON_TERMINAL_WINDOW)
             if ipython_terminal == nil then
                 toggleterm.exec("ipython --no-autoindent", IPYTHON_TERMINAL_WINDOW)
@@ -296,3 +297,7 @@ vim.keymap.set("n", KEYS.open_terminal, function()
         vim.cmd(":ToggleTermToggleAll")
     end
 end, { desc = "Open all terminals or a new one" })
+
+vim.keymap.set("n", KEYS.open_all_terminals, function()
+    vim.cmd(":ToggleTermToggleAll")
+end)

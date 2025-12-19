@@ -94,6 +94,7 @@ local remaps_plugins =
     },
     toggleterm = {
         open_terminal = '<leader>to', --must change on plugin file
+        open_all_terminals = '<leader>ta',
         run_file = '<leader>tr',
         run_tests = '<leader>tt',
         https_client = '<leader>tc', --useful for rust web clients
